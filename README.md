@@ -620,7 +620,7 @@ HaqDar is **free for citizens, forever.** Sustainability comes from:
 
 ## 🏆 Hackathon
 
-This project was built for the **Build for Good National Student Hackathon 2025**.
+This project was built for the **Build for Good National Student Hackathon 2026**.
 
 - **Theme:** AWAAZ (आवाज़) — Voice, Safety & Social Access
 - **Sub-theme:** Government Schemes & Entitlements
