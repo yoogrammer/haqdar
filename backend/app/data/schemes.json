@@ -1,0 +1,376 @@
+[
+    {
+        "id": 1,
+        "name": "PM Awas Yojana (Gramin)",
+        "name_hindi": "प्रधानमंत्री आवास योजना (ग्रामीण)",
+        "benefit": "₹1,20,000 for house construction",
+        "benefit_hindi": "घर बनाने के लिए ₹1,20,000",
+        "category": "Housing",
+        "eligibility": {
+            "income_max": 200000,
+            "residence": [
+                "rural"
+            ],
+            "must_not_have": [
+                "pucca_house"
+            ],
+            "priority": [
+                "sc",
+                "st",
+                "women_headed",
+                "bpl"
+            ]
+        },
+        "documents": [
+            "Aadhaar Card",
+            "BPL Ration Card",
+            "Bank Account Details",
+            "Land Ownership Documents"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "बीपीएल राशन कार्ड",
+            "बैंक खाता विवरण",
+            "जमीन के कागजात"
+        ],
+        "apply_at": "Gram Panchayat Office",
+        "apply_at_hindi": "ग्राम पंचायत कार्यालय",
+        "apply_online": "https://pmayg.nic.in",
+        "annual_benefit_value": 120000,
+        "tags": [
+            "housing",
+            "rural",
+            "bpl",
+            "construction"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "PM Jan Arogya Yojana (Ayushman Bharat)",
+        "name_hindi": "प्रधानमंत्री जन आरोग्य योजना (आयुष्मान भारत)",
+        "benefit": "₹5,00,000 annual health insurance cover",
+        "benefit_hindi": "₹5,00,000 तक मुफ्त इलाज हर साल",
+        "category": "Health",
+        "eligibility": {
+            "income_max": 300000,
+            "priority": [
+                "bpl",
+                "sc",
+                "st",
+                "ration_card_holders"
+            ]
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Ration Card",
+            "Income Certificate"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "राशन कार्ड",
+            "आय प्रमाण पत्र"
+        ],
+        "apply_at": "Nearest Empanelled Hospital or CSC",
+        "apply_at_hindi": "नजदीकी अस्पताल या जन सेवा केंद्र",
+        "apply_online": "https://pmjay.gov.in",
+        "annual_benefit_value": 500000,
+        "tags": [
+            "health",
+            "insurance",
+            "hospital",
+            "bpl"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "PM Ujjwala Yojana",
+        "name_hindi": "प्रधानमंत्री उज्ज्वला योजना",
+        "benefit": "Free LPG connection + ₹1600 subsidy",
+        "benefit_hindi": "मुफ्त गैस कनेक्शन + ₹1600 सब्सिडी",
+        "category": "Energy",
+        "eligibility": {
+            "gender": [
+                "female"
+            ],
+            "income_max": 200000,
+            "must_not_have": [
+                "lpg_connection"
+            ],
+            "priority": [
+                "bpl",
+                "sc",
+                "st"
+            ]
+        },
+        "documents": [
+            "Aadhaar Card",
+            "BPL Ration Card",
+            "Bank Account Details",
+            "Passport Size Photo"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "बीपीएल राशन कार्ड",
+            "बैंक खाता",
+            "पासपोर्ट फोटो"
+        ],
+        "apply_at": "Nearest LPG Distributor",
+        "apply_at_hindi": "नजदीकी गैस एजेंसी",
+        "apply_online": "https://www.pmuy.gov.in",
+        "annual_benefit_value": 1600,
+        "tags": [
+            "lpg",
+            "gas",
+            "women",
+            "bpl",
+            "energy"
+        ]
+    },
+    {
+        "id": 4,
+        "name": "PM Kisan Samman Nidhi",
+        "name_hindi": "प्रधानमंत्री किसान सम्मान निधि",
+        "benefit": "₹6,000 per year directly in bank account",
+        "benefit_hindi": "हर साल ₹6,000 सीधे बैंक में",
+        "category": "Agriculture",
+        "eligibility": {
+            "occupation": [
+                "farmer"
+            ],
+            "land_ownership": true,
+            "income_max": 200000
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Land Records (Khasra/Khatauni)",
+            "Bank Account Details"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "जमीन के कागजात (खसरा/खतौनी)",
+            "बैंक खाता"
+        ],
+        "apply_at": "Patwari Office or CSC",
+        "apply_at_hindi": "पटवारी कार्यालय या जन सेवा केंद्र",
+        "apply_online": "https://pmkisan.gov.in",
+        "annual_benefit_value": 6000,
+        "tags": [
+            "farmer",
+            "agriculture",
+            "cash",
+            "direct_benefit"
+        ]
+    },
+    {
+        "id": 5,
+        "name": "PM SVANidhi (Street Vendor Loan)",
+        "name_hindi": "पीएम स्वनिधि (रेहड़ी-पटरी वाला लोन)",
+        "benefit": "₹10,000 to ₹50,000 collateral-free loan",
+        "benefit_hindi": "₹10,000 से ₹50,000 तक बिना गारंटी लोन",
+        "category": "Livelihood",
+        "eligibility": {
+            "occupation": [
+                "street_vendor",
+                "daily_wage",
+                "informal_worker"
+            ],
+            "income_max": 300000
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Vendor Certificate or Letter of Recommendation",
+            "Bank Account Details"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "दुकान/रेहड़ी का प्रमाण पत्र",
+            "बैंक खाता"
+        ],
+        "apply_at": "Nearest Bank or CSC",
+        "apply_at_hindi": "नजदीकी बैंक या जन सेवा केंद्र",
+        "apply_online": "https://pmsvanidhi.mohua.gov.in",
+        "annual_benefit_value": 10000,
+        "tags": [
+            "loan",
+            "vendor",
+            "informal",
+            "livelihood"
+        ]
+    },
+    {
+        "id": 6,
+        "name": "Scholarship for SC/ST Students",
+        "name_hindi": "अनुसूचित जाति/जनजाति छात्रवृत्ति",
+        "benefit": "₹3,500 to ₹12,000 per year for education",
+        "benefit_hindi": "पढ़ाई के लिए ₹3,500 से ₹12,000 प्रति वर्ष",
+        "category": "Education",
+        "eligibility": {
+            "caste": [
+                "sc",
+                "st"
+            ],
+            "age_max": 25,
+            "income_max": 250000,
+            "has_children_studying": true
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Caste Certificate",
+            "Income Certificate",
+            "School/College ID",
+            "Bank Account"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "जाति प्रमाण पत्र",
+            "आय प्रमाण पत्र",
+            "स्कूल/कॉलेज आईडी",
+            "बैंक खाता"
+        ],
+        "apply_at": "School/College or District Welfare Office",
+        "apply_at_hindi": "स्कूल/कॉलेज या जिला कल्याण कार्यालय",
+        "apply_online": "https://scholarships.gov.in",
+        "annual_benefit_value": 12000,
+        "tags": [
+            "education",
+            "scholarship",
+            "sc",
+            "st",
+            "children"
+        ]
+    },
+    {
+        "id": 7,
+        "name": "Maternity Benefit Programme (PMMVY)",
+        "name_hindi": "प्रधानमंत्री मातृत्व वंदना योजना",
+        "benefit": "₹5,000 cash for first pregnancy",
+        "benefit_hindi": "पहली बार माँ बनने पर ₹5,000 नकद",
+        "category": "Women & Child",
+        "eligibility": {
+            "gender": [
+                "female"
+            ],
+            "age_min": 19,
+            "pregnant_or_lactating": true,
+            "first_child": true
+        },
+        "documents": [
+            "Aadhaar Card",
+            "MCP Card (Mother Child Protection)",
+            "Bank Account Details"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "एमसीपी कार्ड",
+            "बैंक खाता"
+        ],
+        "apply_at": "Anganwadi Centre or Health Centre",
+        "apply_at_hindi": "आंगनबाड़ी केंद्र या स्वास्थ्य केंद्र",
+        "apply_online": "https://pmmvy.wcd.gov.in",
+        "annual_benefit_value": 5000,
+        "tags": [
+            "women",
+            "pregnancy",
+            "maternity",
+            "cash"
+        ]
+    },
+    {
+        "id": 8,
+        "name": "MGNREGA (100 Days Work Guarantee)",
+        "name_hindi": "मनरेगा (100 दिन काम की गारंटी)",
+        "benefit": "100 days guaranteed employment at ₹220-₹350/day",
+        "benefit_hindi": "100 दिन रोज़गार की गारंटी, ₹220-₹350 प्रतिदिन",
+        "category": "Employment",
+        "eligibility": {
+            "residence": [
+                "rural"
+            ],
+            "age_min": 18,
+            "willing_to_do_manual_work": true
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Job Card (from Gram Panchayat)",
+            "Bank Account"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "जॉब कार्ड (ग्राम पंचायत से)",
+            "बैंक खाता"
+        ],
+        "apply_at": "Gram Panchayat Office",
+        "apply_at_hindi": "ग्राम पंचायत कार्यालय",
+        "apply_online": "https://nrega.nic.in",
+        "annual_benefit_value": 22000,
+        "tags": [
+            "employment",
+            "rural",
+            "daily_wage",
+            "work",
+            "labor"
+        ]
+    },
+    {
+        "id": 9,
+        "name": "PM Suraksha Bima Yojana",
+        "name_hindi": "प्रधानमंत्री सुरक्षा बीमा योजना",
+        "benefit": "₹2,00,000 accident insurance for just ₹12/year",
+        "benefit_hindi": "सिर्फ ₹12/साल में ₹2,00,000 का दुर्घटना बीमा",
+        "category": "Insurance",
+        "eligibility": {
+            "age_min": 18,
+            "age_max": 70,
+            "has_bank_account": true
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Bank Account"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "बैंक खाता"
+        ],
+        "apply_at": "Any Bank Branch or Online Banking",
+        "apply_at_hindi": "कोई भी बैंक शाखा",
+        "apply_online": "https://jansuraksha.gov.in",
+        "annual_benefit_value": 200000,
+        "tags": [
+            "insurance",
+            "accident",
+            "bank",
+            "cheap"
+        ]
+    },
+    {
+        "id": 10,
+        "name": "Pradhan Mantri Jeevan Jyoti Bima",
+        "name_hindi": "प्रधानमंत्री जीवन ज्योति बीमा योजना",
+        "benefit": "₹2,00,000 life insurance for just ₹436/year",
+        "benefit_hindi": "सिर्फ ₹436/साल में ₹2,00,000 का जीवन बीमा",
+        "category": "Insurance",
+        "eligibility": {
+            "age_min": 18,
+            "age_max": 50,
+            "has_bank_account": true
+        },
+        "documents": [
+            "Aadhaar Card",
+            "Bank Account"
+        ],
+        "documents_hindi": [
+            "आधार कार्ड",
+            "बैंक खाता"
+        ],
+        "apply_at": "Any Bank Branch",
+        "apply_at_hindi": "कोई भी बैंक शाखा",
+        "apply_online": "https://jansuraksha.gov.in",
+        "annual_benefit_value": 200000,
+        "tags": [
+            "insurance",
+            "life",
+            "bank",
+            "family"
+        ]
+    }
+]
