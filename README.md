@@ -1,13 +1,5 @@
 
 
-# 📄 Complete README.md for HaqDar
-
-Copy this **entire content** into a file named `README.md` at the root of your project (`E:\SAMA\HaqDar\README.md`)
-
----
-
-```markdown
-<div align="center">
 
 # ⚖️ HaqDar
 
@@ -22,7 +14,7 @@ Copy this **entire content** into a file named `README.md` at the root of your p
 
 [Live Demo](https://haqdar.vercel.app) · [Video Demo](#-video-demo) · [Report Bug](#) · [Request Feature](#)
 
-</div>
+
 
 ---
 
@@ -100,18 +92,18 @@ India runs one of the world's largest welfare systems. There are over **700 cent
 
 ```
 ┌─────────────────────────────────────────────────┐
-│                                                   │
-│   Citizen answers 8 simple questions              │
-│              ↓                                     │
-│   AI matches against 700+ schemes                 │
-│              ↓                                     │
-│   Instant personalized results:                   │
-│     ✓ All eligible schemes                         │
-│     ✓ Total benefit amount                         │
-│     ✓ Documents needed                             │
-│     ✓ Where to apply                               │
-│     ✓ AI guidance in Hindi/English                │
-│                                                   │
+│                                                 │
+│   Citizen answers 8 simple questions            │
+│              ↓                                  │
+│   AI matches against 700+ schemes               │
+│              ↓                                  │
+│   Instant personalized results:                 │
+│     ✓ All eligible scheme                       │
+│     ✓ Total benefit amount                      │
+│     ✓ Documents needed                          │
+│     ✓ Where to apply                            │
+│     ✓ AI guidance in Hindi/English              │
+│                                                 │
 └─────────────────────────────────────────────────┘
 ```
 
@@ -649,7 +641,7 @@ This project was built for the **Build for Good National Student Hackathon 2025*
 
 | Name | Role |
 |------|------|
-| [Your Name] | Full Stack Developer |
+| Rohan Jadhav | Full Stack Developer |
 
 ---
 
@@ -691,7 +683,7 @@ Free to use, modify, and distribute. Built for the public good.
 
 ---
 
-<div align="center">
+
 
 ### ⚖️ HaqDar — हर हक़ मिलना चाहिए
 
@@ -703,89 +695,5 @@ Free to use, modify, and distribute. Built for the public good.
 
 ⭐ Star this repo if you believe every Indian deserves their rights ⭐
 
-</div>
-```
-
----
-
-## 📋 How to Add This README
-
-### Step 1 — Create the file
-
-```powershell
-cd E:\SAMA\HaqDar
-New-Item README.md -Force
-```
-
-### Step 2 — Open in VS Code
-
-```powershell
-code README.md
-```
-
-### Step 3 — Paste the entire content above
-
-### Step 4 — Replace placeholders
 
 ```
-Find and replace these:
-- YOUR-USERNAME    → your actual GitHub username
-- [Your Name]      → your name
-- YOUR-VIDEO       → your YouTube video ID
-```
-
-### Step 5 — Save and push
-
-```powershell
-git add README.md
-git commit -m "Add comprehensive README"
-git push
-```
-
----
-
-## 🎯 Bonus — Create LICENSE File
-
-```powershell
-New-Item LICENSE -Force
-code LICENSE
-```
-
-Paste this:
-
-```
-MIT License
-
-Copyright (c) 2025 HaqDar
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-```
-
----
-
-> ## ✅ Your README is now:
-> - 📖 Comprehensive (problem → solution → impact)
-> - 🎨 Beautiful (badges, tables, diagrams)
-> - 🚀 Practical (run instructions, deployment)
-> - 💼 Professional (looks like a real product)
-> - 🏆 Judge-friendly (clear story, impact metrics)
->
-> **This README alone will impress judges! 💪🚀🇮🇳**
->
-> Need help with anything else for your submission?
