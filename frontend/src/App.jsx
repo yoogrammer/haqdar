@@ -98,7 +98,7 @@ function App() {
                     </div>
 
                     <div className="footer-bottom">
-                        <div>© 2025 HaqDar. Built for Bharat 🇮🇳</div>
+                        <div>© 2026 HaqDar. Built for Bharat 🇮🇳</div>
                         <div className="footer-social">
                             <a href="#email" aria-label="Email"><Mail size={16} /></a>
                             <a href="#external" aria-label="Website"><ExternalLink size={16} /></a>

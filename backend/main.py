@@ -1,155 +1,76 @@
-# backend/main.py
-
-from fastapi import FastAPI, HTTPException
+# app/main.py
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from typing import Optional
-import os
-from dotenv import load_dotenv
-from groq import Groq
+from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.responses import JSONResponse
+from contextlib import asynccontextmanager
+import time
 
-# Load environment variables
-load_dotenv()
+from app.config import settings
+from app.api.routes import router
+from app.utils.logger import logger
 
-# Setup Groq client (FREE alternative to OpenAI)
-client = Groq(api_key=os.getenv("GROQ_API_KEY"))
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    logger.info(f"Starting {settings.APP_NAME} v{settings.APP_VERSION}")
+    yield
+    logger.info("Shutting down")
 
-# Create FastAPI app
-app = FastAPI(title="HaqDar API", version="1.0.0")
+app = FastAPI(
+    title=settings.APP_NAME,
+    version=settings.APP_VERSION,
+    description="Discover government schemes in 60 seconds",
+    docs_url="/docs",
+    redoc_url="/redoc",
+    lifespan=lifespan
+)
 
-# Allow React frontend to connect
+# ════════════════════════════════════════
+# CORS - ALLOW EVERYTHING (Production Fix)
+# ════════════════════════════════════════
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=86400,
 )
 
-# ─────────────────────────────────────────
-# DATA MODELS
-# ─────────────────────────────────────────
+app.add_middleware(GZipMiddleware, minimum_size=1000)
 
-class UserProfile(BaseModel):
-    name: str
-    age: int
-    gender: str
-    state: str
-    residence: str
-    occupation: str
-    income: int
-    caste: str
-    has_bank_account: bool
-    has_ration_card: bool
-    has_children: bool
-    is_pregnant: Optional[bool] = False
-    language: Optional[str] = "english"
+# Manual CORS backup (in case middleware fails)
+@app.middleware("http")
+async def add_cors_and_log(request: Request, call_next):
+    start = time.time()
+    
+    # Handle preflight OPTIONS requests
+    if request.method == "OPTIONS":
+        response = JSONResponse(content={"status": "ok"})
+    else:
+        response = await call_next(request)
+    
+    # Force add CORS headers to EVERY response
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    response.headers["Access-Control-Max-Age"] = "86400"
+    
+    duration = round((time.time() - start) * 1000, 2)
+    logger.info(f"{request.method} {request.url.path} | {response.status_code} | {duration}ms")
+    
+    return response
 
-# ─────────────────────────────────────────
-# ROUTES
-# ─────────────────────────────────────────
+# Global error handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Error: {exc}", exc_info=True)
+    response = JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error"}
+    )
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
 
-@app.get("/")
-def home():
-    return {
-        "message": "HaqDar API is running!",
-        "tagline": "हर हक़ मिलना चाहिए"
-    }
-
-@app.get("/health")
-def health_check():
-    return {"status": "healthy"}
-
-@app.post("/find-schemes")
-async def find_schemes(user: UserProfile):
-    try:
-        # Step 1 — Rule based eligibility check
-        from eligibility import check_eligibility
-        user_dict = user.dict()
-        eligible_schemes = check_eligibility(user_dict)
-
-        if not eligible_schemes:
-            return {
-                "success": True,
-                "user_name": user.name,
-                "total_schemes": 0,
-                "total_annual_benefit": 0,
-                "schemes": [],
-                "ai_summary": "Based on your profile, please visit your nearest Common Service Centre (CSC) for personalized help.",
-            }
-
-        # Step 2 — Calculate total benefit
-        total_benefit = sum(
-            s.get('annual_benefit_value', 0)
-            for s in eligible_schemes
-        )
-
-        # Step 3 — Generate AI summary using Groq (FREE)
-        scheme_names = [s['name'] for s in eligible_schemes]
-
-        prompt = f"""
-You are a helpful government scheme advisor in India.
-
-User Profile:
-- Name: {user.name}
-- Age: {user.age}, Gender: {user.gender}
-- State: {user.state}, Residence: {user.residence}
-- Occupation: {user.occupation}
-- Annual Income: Rs.{user.income}
-- Caste Category: {user.caste}
-
-They are eligible for these {len(eligible_schemes)} government schemes:
-{', '.join(scheme_names)}
-
-Total potential annual benefit: Rs.{total_benefit}
-
-Write a warm, encouraging 3-sentence summary in {'Hindi' if user.language == 'hindi' else 'simple English'}.
-Tell them how many schemes they qualify for, the total benefit amount, and encourage them to apply immediately.
-Keep it very simple, warm and motivating.
-Do not use complex words.
-"""
-
-        response = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
-            messages=[
-                {
-                    "role": "system",
-                    "content": "You are a helpful government scheme advisor who helps poor families in India understand their rights and benefits."
-                },
-                {
-                    "role": "user",
-                    "content": prompt
-                }
-            ],
-            max_tokens=200,
-            temperature=0.7
-        )
-
-        ai_summary = response.choices[0].message.content
-
-        # Step 4 — Return everything
-        return {
-            "success": True,
-            "user_name": user.name,
-            "total_schemes": len(eligible_schemes),
-            "total_annual_benefit": total_benefit,
-            "schemes": eligible_schemes,
-            "ai_summary": ai_summary,
-            "language": user.language
-        }
-
-    except Exception as e:
-        raise HTTPException(
-            status_code=500,
-            detail=f"Error: {str(e)}"
-        )
-
-
-@app.get("/schemes/all")
-def get_all_schemes():
-    from eligibility import load_schemes
-    schemes = load_schemes()
-    return {
-        "total": len(schemes),
-        "schemes": schemes
-    }
+app.include_router(router)

@@ -2076,3 +2076,490 @@ select.input {
     padding: 14px;
   }
 }
+/* ════════════════════════════════════
+   RESULTS PAGE — PROFESSIONAL
+   ════════════════════════════════════ */
+.res {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 40px;
+  animation: stepIn 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Success Banner */
+.res-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 24px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-sm);
+}
+
+.res-banner-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid #A7F3D0;
+}
+
+.res-banner-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.res-banner-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.res-highlight {
+  color: var(--brand);
+  font-size: 26px;
+}
+
+/* Benefit Card */
+.res-benefit {
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  border-radius: var(--r-xl);
+  overflow: hidden;
+  position: relative;
+}
+
+.res-benefit::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 320px;
+  height: 320px;
+  background: radial-gradient(circle, rgba(234, 88, 12, 0.2) 0%, transparent 65%);
+}
+
+.res-benefit-inner {
+  padding: 40px 32px;
+  position: relative;
+  color: white;
+}
+
+.res-benefit-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255,255,255,0.65);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+}
+
+.res-benefit-amount {
+  font-size: 64px;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin-bottom: 14px;
+}
+
+.res-benefit-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* AI Insight */
+.res-ai {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 24px;
+}
+
+.res-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  background: #FFF7ED;
+  color: #C2410C;
+  border: 1px solid #FED7AA;
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 14px;
+}
+
+.res-ai-text {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* Schemes Section */
+.res-schemes {
+  margin-top: 8px;
+}
+
+.res-schemes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 18px;
+}
+
+.res-schemes-title {
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
+}
+
+.res-schemes-sub {
+  font-size: 13.5px;
+  color: var(--text-2);
+  margin-top: 3px;
+}
+
+.res-schemes-count {
+  font-size: 12px;
+  color: var(--text-2);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.res-schemes-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Action Buttons */
+.res-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  gap: 12px;
+}
+
+/* ════════════════════════════════════
+   SCHEME CARD — PROFESSIONAL
+   ════════════════════════════════════ */
+.sc {
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: all 200ms ease;
+}
+
+.sc:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.sc.sc-open {
+  border-color: var(--sc-border);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Header Row */
+.sc-header {
+  width: 100%;
+  padding: 20px 22px 12px;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sc-left {
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  min-width: 0;
+}
+
+.sc-index {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 2px;
+}
+
+.sc-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.sc-tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 8px;
+}
+
+.sc-name {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  line-height: 1.3;
+  margin-bottom: 3px;
+}
+
+.sc-name-hi {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.3;
+}
+
+.sc-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.sc-amount {
+  text-align: right;
+}
+
+.sc-amount-value {
+  display: block;
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.sc-amount-label {
+  font-size: 11px;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+.sc-toggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-2);
+  transition: all 150ms;
+}
+
+.sc.sc-open .sc-toggle {
+  background: var(--sc-color);
+  color: white;
+}
+
+/* Benefit Line */
+.sc-benefit {
+  padding: 0 22px 18px;
+  padding-left: 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.sc-benefit-dot {
+  width: 6px;
+  height: 6px;
+  min-width: 6px;
+  border-radius: 50%;
+  margin-top: 6px;
+}
+
+/* Expanded Details */
+.sc-details {
+  border-top: 1px solid var(--border);
+  background: var(--bg-soft);
+  padding: 24px 22px;
+  animation: scExpand 250ms ease;
+}
+
+@keyframes scExpand {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.sc-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sc-section {}
+
+.sc-section-title {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.sc-section-title-hi {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-bottom: 12px;
+}
+
+.sc-doc-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sc-doc-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.sc-doc-list li svg {
+  color: #059669;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+
+.sc-apply-text {
+  font-size: 13.5px;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.sc-apply-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  color: white;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 150ms;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+
+.sc-apply-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  opacity: 0.95;
+}
+
+/* ════════════════════════════════════
+   RESPONSIVE
+   ════════════════════════════════════ */
+@media (max-width: 640px) {
+  .res-benefit-amount {
+    font-size: 44px;
+  }
+
+  .res-benefit-inner {
+    padding: 28px 22px;
+  }
+
+  .res-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .res-banner-title {
+    font-size: 18px;
+  }
+
+  .sc-header {
+    padding: 16px 16px 10px;
+  }
+
+  .sc-benefit {
+    padding-left: 58px;
+    padding-right: 16px;
+  }
+
+  .sc-details {
+    padding: 18px 16px;
+  }
+
+  .sc-details-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .sc-amount-value {
+    font-size: 18px;
+  }
+
+  .sc-name {
+    font-size: 14.5px;
+  }
+
+  .res-actions {
+    flex-direction: column;
+  }
+
+  .res-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .res-schemes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+}
