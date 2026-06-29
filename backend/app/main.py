@@ -1,4 +1,4 @@
-# app/main.py
+﻿# app/main.py
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.middleware.gzip import GZipMiddleware
@@ -12,53 +12,60 @@ from app.utils.logger import logger
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # Startup
-    logger.info(f"🚀 Starting {settings.APP_NAME} v{settings.APP_VERSION}")
-    logger.info(f"📍 CORS allowed: {settings.ALLOWED_ORIGINS}")
+    logger.info(f"Starting {settings.APP_NAME} v{settings.APP_VERSION}")
     yield
-    # Shutdown
-    logger.info("👋 Shutting down gracefully")
+    logger.info("Shutting down")
 
 app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
-    description="Discover every government scheme you qualify for in 60 seconds.",
+    description="Discover government schemes in 60 seconds",
     docs_url="/docs",
     redoc_url="/redoc",
     lifespan=lifespan
 )
 
-# Middleware
+# CORS - Allow EVERYTHING
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.ALLOWED_ORIGINS,
-    allow_credentials=True,
-    allow_methods=["GET", "POST"],
+    allow_origins=["*"],
+    allow_credentials=False,
+    allow_methods=["*"],
     allow_headers=["*"],
+    expose_headers=["*"],
+    max_age=86400,
 )
 
 app.add_middleware(GZipMiddleware, minimum_size=1000)
 
-# Request logging middleware
+# Manual CORS backup
 @app.middleware("http")
-async def log_requests(request: Request, call_next):
+async def add_cors_and_log(request: Request, call_next):
     start = time.time()
-    response = await call_next(request)
+    
+    if request.method == "OPTIONS":
+        response = JSONResponse(content={"status": "ok"})
+    else:
+        response = await call_next(request)
+    
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "*"
+    response.headers["Access-Control-Max-Age"] = "86400"
+    
     duration = round((time.time() - start) * 1000, 2)
-    logger.info(
-        f"{request.method} {request.url.path} | "
-        f"{response.status_code} | {duration}ms"
-    )
+    logger.info(f"{request.method} {request.url.path} | {response.status_code} | {duration}ms")
+    
     return response
 
-# Global exception handler
 @app.exception_handler(Exception)
 async def global_exception_handler(request: Request, exc: Exception):
-    logger.error(f"Unhandled exception: {exc}", exc_info=True)
-    return JSONResponse(
+    logger.error(f"Error: {exc}", exc_info=True)
+    response = JSONResponse(
         status_code=500,
         content={"detail": "Internal server error"}
     )
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    return response
 
-# Include routes
 app.include_router(router)
