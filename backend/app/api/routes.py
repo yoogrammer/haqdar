@@ -13,11 +13,8 @@ from app.utils.logger import logger
 
 router = APIRouter()
 
-@router.get(
-    "/",
-    tags=["Health"],
-    summary="API Root"
-)
+
+@router.get("/", tags=["Health"])
 async def root():
     return {
         "service": settings.APP_NAME,
@@ -26,11 +23,8 @@ async def root():
         "docs": "/docs"
     }
 
-@router.get(
-    "/health",
-    response_model=HealthResponse,
-    tags=["Health"]
-)
+
+@router.get("/health", response_model=HealthResponse, tags=["Health"])
 async def health_check():
     return HealthResponse(
         status="healthy",
@@ -38,30 +32,20 @@ async def health_check():
         timestamp=datetime.utcnow().isoformat()
     )
 
-@router.post(
-    "/find-schemes",
-    response_model=SchemesResponse,
-    tags=["Schemes"],
-    summary="Find eligible government schemes",
-    responses={
-        500: {"model": ErrorResponse, "description": "Internal server error"}
-    }
-)
+
+@router.post("/find-schemes", response_model=SchemesResponse, tags=["Schemes"])
 async def find_schemes(user: UserProfile):
     """
     Find all government schemes user is eligible for.
-    
-    Returns personalized scheme recommendations with AI-generated summary.
-    Results are cached for 1 hour to reduce API costs.
     """
     start_time = time.time()
     profile_dict = user.dict()
     
     try:
-        # Check cache first
+        # Check cache
         cached_result = cache_service.get(profile_dict)
         if cached_result:
-            cached_result['user_name'] = user.name  # Personalize name
+            cached_result['user_name'] = user.name
             cached_result['cached'] = True
             cached_result['processing_time_ms'] = round((time.time() - start_time) * 1000, 2)
             return cached_result
@@ -92,60 +76,57 @@ async def find_schemes(user: UserProfile):
             "processing_time_ms": round((time.time() - start_time) * 1000, 2)
         }
         
-        # Cache it
+        # Cache the result
         cache_service.set(profile_dict, response_data)
-
-        # Save to database (non-blocking, won't crash if fails)
-try:
-    from app.core.database import db_service
-    db_service.save_submission(profile_dict, eligible_schemes, total_benefit)
-except Exception as e:
-    logger.error(f"DB save failed: {e}")
+        
+        # Save to database (non-blocking)
+        try:
+            from app.core.database import db_service
+            db_service.save_submission(profile_dict, eligible_schemes, total_benefit)
+        except Exception as db_error:
+            logger.error(f"Database save failed: {db_error}")
         
         logger.info(
-            f"Processed request: user={user.name} | "
+            f"Processed: user={user.name} | "
             f"schemes={len(eligible_schemes)} | "
-            f"benefit=₹{total_benefit:,} | "
+            f"benefit=Rs.{total_benefit} | "
             f"time={response_data['processing_time_ms']}ms"
         )
         
         return response_data
         
     except Exception as e:
-        logger.error(f"Error processing request: {e}", exc_info=True)
+        logger.error(f"Error: {e}", exc_info=True)
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail="An error occurred while processing your request. Please try again."
+            detail="An error occurred. Please try again."
         )
 
-@router.get(
-    "/schemes",
-    tags=["Schemes"],
-    summary="Get all available schemes"
-)
+
+@router.get("/schemes", tags=["Schemes"])
 async def get_all_schemes():
-    """Returns all schemes in the database (for browsing)"""
+    """Returns all schemes"""
     schemes = eligibility_engine.get_all_schemes()
     return {
         "total": len(schemes),
         "schemes": schemes
     }
 
+
 @router.get("/stats", tags=["Admin"])
 async def get_stats():
     """Service and usage statistics"""
-    from app.core.database import db_service
-    
-    return {
+    stats = {
         "cache": cache_service.stats(),
         "schemes_loaded": len(eligibility_engine.get_all_schemes()),
         "model": settings.GROQ_MODEL,
-        "database": db_service.get_stats()
     }
-async def get_stats():
-    """Cache and service statistics"""
-    return {
-        "cache": cache_service.stats(),
-        "schemes_loaded": len(eligibility_engine.get_all_schemes()),
-        "model": settings.GROQ_MODEL
-    }
+    
+    # Add database stats if available
+    try:
+        from app.core.database import db_service
+        stats["database"] = db_service.get_stats()
+    except Exception as e:
+        stats["database"] = {"connected": False, "error": str(e)}
+    
+    return stats
