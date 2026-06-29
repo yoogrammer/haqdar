@@ -12,73 +12,76 @@ const Results = ({ results, onBack }) => {
         ai_summary,
     } = results;
 
+    const formatINR = (amount) => {
+        return new Intl.NumberFormat('en-IN').format(amount);
+    };
+
     return (
-        <div className="results">
+        <div className="res">
 
             {/* Success Banner */}
-            <div className="success-banner">
-                <div className="success-icon">
+            <div className="res-banner">
+                <div className="res-banner-icon">
                     <CheckCircle2 size={28} strokeWidth={2.5} />
                 </div>
-                <div>
-                    <div className="success-eyebrow">Results ready</div>
-                    <h1 className="success-title">
-                        {user_name}, you qualify for <span className="num-highlight">{total_schemes}</span> schemes
+                <div className="res-banner-text">
+                    <div className="res-banner-label">Results ready</div>
+                    <h1 className="res-banner-title">
+                        {user_name}, you qualify for <span className="res-highlight">{total_schemes}</span> schemes
                     </h1>
                 </div>
             </div>
 
-            {/* Big benefit card */}
-            <div className="benefit-hero">
-                <div className="benefit-label">
-                    <TrendingUp size={14} />
-                    Total annual benefit you can claim
-                </div>
-                <div className="benefit-amount">
-                    ₹{total_annual_benefit.toLocaleString('en-IN')}
-                </div>
-                <div className="benefit-sub">
-                    This money is your legal right · Start applying today
+            {/* Big Benefit Card */}
+            <div className="res-benefit">
+                <div className="res-benefit-inner">
+                    <div className="res-benefit-label">
+                        <TrendingUp size={14} />
+                        Total annual benefit you can claim
+                    </div>
+                    <div className="res-benefit-amount">
+                        ₹{formatINR(total_annual_benefit)}
+                    </div>
+                    <div className="res-benefit-sub">
+                        This money is your legal right. Start applying today.
+                    </div>
                 </div>
             </div>
 
-            {/* AI Insight */}
-            <div className="ai-insight">
-                <div className="ai-badge">
+            {/* AI Summary */}
+            <div className="res-ai">
+                <div className="res-ai-badge">
                     <Sparkles size={13} />
                     AI Insight
                 </div>
-                <p className="ai-text">{ai_summary}</p>
+                <p className="res-ai-text">{ai_summary}</p>
             </div>
 
             {/* Schemes Section */}
-            <div className="schemes-section">
-                <div className="section-header">
+            <div className="res-schemes">
+                <div className="res-schemes-header">
                     <div>
-                        <h2 className="section-title">Your eligible schemes</h2>
-                        <p className="section-sub">Tap any scheme to see how to apply</p>
+                        <h2 className="res-schemes-title">Your eligible schemes</h2>
+                        <p className="res-schemes-sub">Tap any scheme to see how to apply</p>
                     </div>
-                    <div className="scheme-count">
+                    <div className="res-schemes-count">
                         {total_schemes} matches
                     </div>
                 </div>
 
-                <div className="schemes-stack">
+                <div className="res-schemes-list">
                     {schemes.map((scheme, i) => (
                         <SchemeCard key={scheme.id} scheme={scheme} index={i + 1} />
                     ))}
                 </div>
             </div>
 
-            {/* Actions */}
-            <div className="results-actions">
+            {/* Action Buttons */}
+            <div className="res-actions">
                 <button className="btn btn-ghost" onClick={onBack}>
                     <ArrowLeft size={16} /> Check for someone else
                 </button>
-                <button
-                    className="btn btn-secondary"
-                    onClick={() => window.print()}
-                >
+                <button className="btn btn-secondary" onClick={() => window.print()}>
                     <Download size={16} /> Save as PDF
                 </button>
             </div>
