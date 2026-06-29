@@ -94,6 +94,13 @@ async def find_schemes(user: UserProfile):
         
         # Cache it
         cache_service.set(profile_dict, response_data)
+
+        # Save to database (non-blocking, won't crash if fails)
+try:
+    from app.core.database import db_service
+    db_service.save_submission(profile_dict, eligible_schemes, total_benefit)
+except Exception as e:
+    logger.error(f"DB save failed: {e}")
         
         logger.info(
             f"Processed request: user={user.name} | "
@@ -124,11 +131,17 @@ async def get_all_schemes():
         "schemes": schemes
     }
 
-@router.get(
-    "/stats",
-    tags=["Admin"],
-    summary="Service statistics"
-)
+@router.get("/stats", tags=["Admin"])
+async def get_stats():
+    """Service and usage statistics"""
+    from app.core.database import db_service
+    
+    return {
+        "cache": cache_service.stats(),
+        "schemes_loaded": len(eligibility_engine.get_all_schemes()),
+        "model": settings.GROQ_MODEL,
+        "database": db_service.get_stats()
+    }
 async def get_stats():
     """Cache and service statistics"""
     return {
