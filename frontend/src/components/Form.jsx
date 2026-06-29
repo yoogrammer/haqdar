@@ -188,7 +188,7 @@ const Form = ({ onSubmit, loading, error: externalError }) => {
                                 className="input"
                                 type="text"
                                 autoComplete="name"
-                                placeholder={hi ? 'जैसे: सुनीता देवी' : 'e.g. Sunita Devi'}
+                                placeholder={hi ? 'जैसे: सुनीता देवी' : 'e.g. your name'}
                                 value={formData.name}
                                 onChange={e => handleChange('name', e.target.value)}
                                 maxLength={100}
@@ -203,7 +203,7 @@ const Form = ({ onSubmit, loading, error: externalError }) => {
                                     className="input"
                                     type="number"
                                     inputMode="numeric"
-                                    placeholder="32"
+                                    placeholder="25"
                                     value={formData.age}
                                     onChange={e => handleChange('age', e.target.value)}
                                     min="1" max="120"
