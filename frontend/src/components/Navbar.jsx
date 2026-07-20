@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { Scale, ExternalLink } from 'lucide-react';
+import { Scale } from 'lucide-react';
 
 const Navbar = () => {
     return (
@@ -20,15 +20,6 @@ const Navbar = () => {
 
                 {/* RIGHT: Actions */}
                 <div className="nav-actions">
-                    <a
-                        href="https://myscheme.gov.in"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="nav-link"
-                    >
-                        Data Source
-                        <ExternalLink size={13} strokeWidth={2} />
-                    </a>
 
                     <div className="status-pill">
                         <span className="status-dot">
