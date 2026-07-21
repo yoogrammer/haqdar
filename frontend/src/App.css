@@ -3009,3 +3009,45 @@ select.input {
     grid-template-columns: 1fr;
   }
 }
+
+/* ════════════════════════════════════
+   TOP BACK BUTTON
+   ════════════════════════════════════ */
+.res-top-bar {
+  margin-bottom: 8px;
+}
+
+.btn-back-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  background: var(--bg-elevated);
+  border: 1.5px solid var(--border);
+  border-radius: var(--r);
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 150ms;
+}
+
+.btn-back-top:hover {
+  background: var(--bg-soft);
+  border-color: var(--border-strong);
+  transform: translateX(-2px);
+}
+
+.btn-back-top svg {
+  transition: transform 150ms;
+}
+
+.btn-back-top:hover svg {
+  transform: translateX(-2px);
+}
+
+@media print {
+  .res-top-bar {
+    display: none !important;
+  }
+}

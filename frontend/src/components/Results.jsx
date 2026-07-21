@@ -15,7 +15,6 @@ const Results = ({ results, onBack }) => {
     } = results;
 
     const handlePrint = () => window.print();
-
     const handlePDF = () => generatePDF(results);
 
     const handleWhatsApp = () => {
@@ -25,6 +24,14 @@ const Results = ({ results, onBack }) => {
 
     return (
         <div className="res">
+
+            {/* TOP BACK BUTTON */}
+            <div className="res-top-bar">
+                <button className="btn-back-top" onClick={onBack}>
+                    <ArrowLeft size={16} />
+                    <span>Back to Home</span>
+                </button>
+            </div>
 
             {/* Success Banner */}
             <div className="res-banner">
@@ -40,7 +47,7 @@ const Results = ({ results, onBack }) => {
                 </div>
             </div>
 
-            {/* Big Benefit Card with Animation */}
+            {/* Big Benefit Card */}
             <div className="res-benefit">
                 <div className="res-benefit-inner">
                     <div className="res-benefit-label">
@@ -48,12 +55,7 @@ const Results = ({ results, onBack }) => {
                         Total annual benefit you can claim
                     </div>
                     <div className="res-benefit-amount">
-                        ₹<CountUp
-                            end={total_annual_benefit}
-                            duration={2.5}
-                            separator=","
-                            useEasing={true}
-                        />
+                        ₹<CountUp end={total_annual_benefit} duration={2.5} separator="," />
                     </div>
                     <div className="res-benefit-sub">
                         This money is your legal right. Start applying today.
@@ -103,7 +105,7 @@ const Results = ({ results, onBack }) => {
                 </div>
             </div>
 
-            {/* Bottom Actions */}
+            {/* Bottom Back Button */}
             <div className="res-actions">
                 <button className="btn btn-ghost" onClick={onBack}>
                     <ArrowLeft size={16} /> Check for someone else

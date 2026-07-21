@@ -12,6 +12,7 @@ import Stats from './components/sections/Stats';
 import FAQ from './components/sections/FAQ';
 import { useSchemes } from './hooks/useSchemes';
 import { Mail, ExternalLink } from 'lucide-react';
+
 import './App.css';
 
 function App() {
@@ -49,7 +50,7 @@ function App() {
                         <HowItWorks />
                         <Stats />
                         <Categories />
-                        <SuccessStories />
+
                         <Testimonials />
                         <FAQ />
                     </>
