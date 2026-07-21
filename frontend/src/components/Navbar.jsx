@@ -1,6 +1,6 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { Scale, ExternalLink, Moon, Sun } from 'lucide-react';
+import { Scale, Moon, Sun } from 'lucide-react';
 import { useDarkMode } from '../hooks/useDarkMode';
 
 const Navbar = () => {
