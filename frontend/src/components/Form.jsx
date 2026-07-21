@@ -1,4 +1,4 @@
-// src/components/Form.jsx
+import VoiceButton from './VoiceButton';
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import {
     User, MapPin, Wallet, FileCheck,
@@ -183,16 +183,22 @@ const Form = ({ onSubmit, loading, error: externalError }) => {
                     <div className="step-content">
                         <div className="field">
                             <label htmlFor="name">{hi ? 'आपका नाम' : 'Your name'}</label>
-                            <input
-                                id="name"
-                                className="input"
-                                type="text"
-                                autoComplete="name"
-                                placeholder={hi ? 'जैसे: सुनीता देवी' : 'e.g. your name'}
-                                value={formData.name}
-                                onChange={e => handleChange('name', e.target.value)}
-                                maxLength={100}
-                            />
+                            <div className="input-with-voice">
+                                <input
+                                    id="name"
+                                    className="input"
+                                    type="text"
+                                    autoComplete="name"
+                                    placeholder={hi ? 'जैसे: सुनीता देवी' : 'e.g. Sunita Devi'}
+                                    value={formData.name}
+                                    onChange={e => handleChange('name', e.target.value)}
+                                    maxLength={100}
+                                />
+                                <VoiceButton
+                                    onTranscript={(text) => handleChange('name', text)}
+                                    language={language}
+                                />
+                            </div>
                         </div>
 
                         <div className="field-row">
