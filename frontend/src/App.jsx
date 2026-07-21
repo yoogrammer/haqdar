@@ -49,6 +49,7 @@ function App() {
                         <HowItWorks />
                         <Stats />
                         <Categories />
+                        <SuccessStories />
                         <Testimonials />
                         <FAQ />
                     </>

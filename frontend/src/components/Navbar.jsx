@@ -1,13 +1,14 @@
 // src/components/Navbar.jsx
 import React from 'react';
-import { Scale } from 'lucide-react';
+import { Scale, ExternalLink, Moon, Sun } from 'lucide-react';
+import { useDarkMode } from '../hooks/useDarkMode';
 
 const Navbar = () => {
+    const { isDark, toggle } = useDarkMode();
+
     return (
         <nav className="navbar">
             <div className="navbar-inner">
-
-                {/* LEFT: Brand */}
                 <div className="brand">
                     <div className="brand-mark">
                         <Scale size={16} strokeWidth={2.5} />
@@ -18,8 +19,10 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                {/* RIGHT: Actions */}
                 <div className="nav-actions">
+                    <button className="dark-toggle" onClick={toggle} aria-label="Toggle dark mode">
+                        {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                    </button>
 
                     <div className="status-pill">
                         <span className="status-dot">
@@ -28,7 +31,6 @@ const Navbar = () => {
                         <span>Live</span>
                     </div>
                 </div>
-
             </div>
         </nav>
     );

@@ -1,7 +1,9 @@
 // src/components/Results.jsx
 import React from 'react';
+import CountUp from 'react-countup';
 import SchemeCard from './SchemeCard';
-import { CheckCircle2, ArrowLeft, Sparkles, TrendingUp, Download } from 'lucide-react';
+import { generatePDF } from '../utils/generatePDF';
+import { CheckCircle2, ArrowLeft, Sparkles, TrendingUp, Download, Printer, Share2 } from 'lucide-react';
 
 const Results = ({ results, onBack }) => {
     const {
@@ -12,8 +14,13 @@ const Results = ({ results, onBack }) => {
         ai_summary,
     } = results;
 
-    const formatINR = (amount) => {
-        return new Intl.NumberFormat('en-IN').format(amount);
+    const handlePrint = () => window.print();
+
+    const handlePDF = () => generatePDF(results);
+
+    const handleWhatsApp = () => {
+        const text = `I discovered ${total_schemes} government schemes worth Rs.${total_annual_benefit.toLocaleString('en-IN')}/year using HaqDar!\n\nCheck yours free at: https://haqdar-khaki.vercel.app\n\nHar haq milna chahiye 🇮🇳`;
+        window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     };
 
     return (
@@ -27,12 +34,13 @@ const Results = ({ results, onBack }) => {
                 <div className="res-banner-text">
                     <div className="res-banner-label">Results ready</div>
                     <h1 className="res-banner-title">
-                        {user_name}, you qualify for <span className="res-highlight">{total_schemes}</span> schemes
+                        {user_name}, you qualify for{' '}
+                        <span className="res-highlight">{total_schemes}</span> schemes
                     </h1>
                 </div>
             </div>
 
-            {/* Big Benefit Card */}
+            {/* Big Benefit Card with Animation */}
             <div className="res-benefit">
                 <div className="res-benefit-inner">
                     <div className="res-benefit-label">
@@ -40,7 +48,12 @@ const Results = ({ results, onBack }) => {
                         Total annual benefit you can claim
                     </div>
                     <div className="res-benefit-amount">
-                        ₹{formatINR(total_annual_benefit)}
+                        ₹<CountUp
+                            end={total_annual_benefit}
+                            duration={2.5}
+                            separator=","
+                            useEasing={true}
+                        />
                     </div>
                     <div className="res-benefit-sub">
                         This money is your legal right. Start applying today.
@@ -57,6 +70,22 @@ const Results = ({ results, onBack }) => {
                 <p className="res-ai-text">{ai_summary}</p>
             </div>
 
+            {/* Quick Action Buttons */}
+            <div className="res-quick-actions">
+                <button className="res-action-btn" onClick={handlePDF}>
+                    <Download size={16} />
+                    <span>Download PDF</span>
+                </button>
+                <button className="res-action-btn" onClick={handlePrint}>
+                    <Printer size={16} />
+                    <span>Print</span>
+                </button>
+                <button className="res-action-btn whatsapp" onClick={handleWhatsApp}>
+                    <Share2 size={16} />
+                    <span>WhatsApp</span>
+                </button>
+            </div>
+
             {/* Schemes Section */}
             <div className="res-schemes">
                 <div className="res-schemes-header">
@@ -64,9 +93,7 @@ const Results = ({ results, onBack }) => {
                         <h2 className="res-schemes-title">Your eligible schemes</h2>
                         <p className="res-schemes-sub">Tap any scheme to see how to apply</p>
                     </div>
-                    <div className="res-schemes-count">
-                        {total_schemes} matches
-                    </div>
+                    <div className="res-schemes-count">{total_schemes} matches</div>
                 </div>
 
                 <div className="res-schemes-list">
@@ -76,13 +103,10 @@ const Results = ({ results, onBack }) => {
                 </div>
             </div>
 
-            {/* Action Buttons */}
+            {/* Bottom Actions */}
             <div className="res-actions">
                 <button className="btn btn-ghost" onClick={onBack}>
                     <ArrowLeft size={16} /> Check for someone else
-                </button>
-                <button className="btn btn-secondary" onClick={() => window.print()}>
-                    <Download size={16} /> Save as PDF
                 </button>
             </div>
         </div>
