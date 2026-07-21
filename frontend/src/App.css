@@ -3051,3 +3051,59 @@ select.input {
     display: none !important;
   }
 }
+
+/* ════════════════════════════════════
+   FOOTER — DARK MODE FIX
+   ════════════════════════════════════ */
+[data-theme="dark"] .footer-pro {
+  background: #050506;
+  border-top: 1px solid #27272A;
+}
+
+[data-theme="dark"] .footer-brand-name {
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .footer-brand-tag {
+  color: #71717A;
+}
+
+[data-theme="dark"] .footer-desc {
+  color: #A1A1AA;
+}
+
+[data-theme="dark"] .footer-col-title {
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .footer-col a {
+  color: #A1A1AA;
+}
+
+[data-theme="dark"] .footer-col a:hover {
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .footer-brand .brand-mark {
+  background: rgba(255, 255, 255, 0.08);
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .footer-bottom {
+  color: #A1A1AA;
+  border-top-color: rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .footer-social a {
+  background: rgba(255, 255, 255, 0.08);
+  color: #A1A1AA;
+}
+
+[data-theme="dark"] .footer-social a:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #FAFAFA;
+}
+
+[data-theme="dark"] .footer-copy svg {
+  color: #F87171;
+}
