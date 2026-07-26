@@ -63,7 +63,7 @@ const VoiceAssistant = ({ onClose, onComplete }) => {
         };
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-    
+
     const loadBestVoice = () => {
         const loadVoices = () => {
             const voices = window.speechSynthesis.getVoices();
@@ -267,7 +267,8 @@ const VoiceAssistant = ({ onClose, onComplete }) => {
             if (isMountedRef.current) setStatus('idle');
         }
     };
-
+    
+    // eslint-disable-next-line no-unused-vars
     const parseAnswer = (key, text) => {
         const lower = text.toLowerCase().trim();
 
