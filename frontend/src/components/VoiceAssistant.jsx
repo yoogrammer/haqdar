@@ -53,7 +53,7 @@ const VoiceAssistant = ({ onClose, onComplete }) => {
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [transcript]);
-
+  
     useEffect(() => {
         isMountedRef.current = true;
         loadBestVoice();
@@ -61,8 +61,9 @@ const VoiceAssistant = ({ onClose, onComplete }) => {
             isMountedRef.current = false;
             cleanup();
         };
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
-
+    
     const loadBestVoice = () => {
         const loadVoices = () => {
             const voices = window.speechSynthesis.getVoices();
