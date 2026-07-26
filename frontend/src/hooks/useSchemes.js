@@ -15,7 +15,6 @@ export const useSchemes = () => {
             const response = await schemeAPI.findSchemes(profile);
             setResults(response.data);
 
-            // Track event (optional)
             if (window.gtag) {
                 window.gtag('event', 'schemes_found', {
                     count: response.data.total_schemes,
@@ -25,12 +24,44 @@ export const useSchemes = () => {
 
             return { success: true, data: response.data };
         } catch (err) {
-            const errorMessage = err.userMessage || 'Something went wrong';
+            let errorMessage = 'Something went wrong. Please try again.';
+
+            try {
+                if (typeof err === 'string') {
+                    errorMessage = err;
+                } else if (err?.userMessage && typeof err.userMessage === 'string') {
+                    errorMessage = err.userMessage;
+                } else if (err?.response?.data?.detail) {
+                    const detail = err.response.data.detail;
+                    if (typeof detail === 'string') {
+                        errorMessage = detail;
+                    } else if (Array.isArray(detail)) {
+                        // Pydantic validation errors
+                        errorMessage = detail.map(d => {
+                            if (typeof d === 'string') return d;
+                            if (d?.msg) return d.msg;
+                            return 'Invalid input';
+                        }).join(', ');
+                    } else if (typeof detail === 'object') {
+                        errorMessage = detail?.msg || 'Invalid input. Please check your details.';
+                    }
+                } else if (err?.message && typeof err.message === 'string') {
+                    errorMessage = err.message;
+                }
+            } catch (e) {
+                errorMessage = 'Something went wrong. Please try again.';
+            }
+
             setError(errorMessage);
+            console.error('Find schemes failed:', err);
             return { success: false, error: errorMessage };
         } finally {
             setLoading(false);
         }
+    }, []);
+
+    const setResultsDirectly = useCallback((data) => {
+        setResults(data);
     }, []);
 
     const reset = useCallback(() => {
@@ -38,5 +69,5 @@ export const useSchemes = () => {
         setError(null);
     }, []);
 
-    return { results, loading, error, findSchemes, reset };
+    return { results, loading, error, findSchemes, reset, setResultsDirectly };
 };

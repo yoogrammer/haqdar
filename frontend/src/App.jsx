@@ -1,26 +1,49 @@
 // src/App.jsx
-import React from 'react';
+import React, { useState } from 'react';
 import Form from './components/Form';
 import Results from './components/Results';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import VoiceAssistant from './components/VoiceAssistant';
 import SocialProof from './components/sections/SocialProof';
 import HowItWorks from './components/sections/HowItWorks';
 import Categories from './components/sections/Categories';
 import Testimonials from './components/sections/Testimonials';
 import Stats from './components/sections/Stats';
 import FAQ from './components/sections/FAQ';
+import SuccessStories from './components/sections/SuccessStories';
 import { useSchemes } from './hooks/useSchemes';
-import { Mail, ExternalLink } from 'lucide-react';
-
+import { Mail, ExternalLink, Heart, Bot } from 'lucide-react';
 import './App.css';
 
 function App() {
-    const { results, loading, error, findSchemes, reset } = useSchemes();
+    const { results, loading, error, findSchemes, reset, setResultsDirectly } = useSchemes();
+    const [showVoiceAssistant, setShowVoiceAssistant] = useState(false);
+
+    const handleVoiceComplete = (data) => {
+        setShowVoiceAssistant(false);
+        setResultsDirectly(data);
+    };
 
     return (
         <div className="app">
             <Navbar />
+
+            <button
+                className="voice-fab"
+                onClick={() => setShowVoiceAssistant(true)}
+                title="Talk to HaqDar Sahayak"
+            >
+                <Bot size={24} />
+                <span>Talk to AI</span>
+            </button>
+
+            {showVoiceAssistant && (
+                <VoiceAssistant
+                    onClose={() => setShowVoiceAssistant(false)}
+                    onComplete={handleVoiceComplete}
+                />
+            )}
 
             <div className="page-wrap">
                 {!results && (
@@ -50,7 +73,7 @@ function App() {
                         <HowItWorks />
                         <Stats />
                         <Categories />
-
+                        <SuccessStories />
                         <Testimonials />
                         <FAQ />
                     </>
@@ -100,10 +123,16 @@ function App() {
                     </div>
 
                     <div className="footer-bottom">
-                        <div>© 2026 HaqDar. Built for Bharat 🇮🇳</div>
+                        <div className="footer-copy">
+                            © 2025 HaqDar · Made with <Heart size={12} fill="currentColor" /> for Bharat 🇮🇳
+                        </div>
                         <div className="footer-social">
-                            <a href="#email" aria-label="Email"><Mail size={16} /></a>
-                            <a href="#external" aria-label="Website"><ExternalLink size={16} /></a>
+                            <a href="mailto:hello@haqdar.in" aria-label="Email">
+                                <Mail size={16} />
+                            </a>
+                            <a href="https://myscheme.gov.in" target="_blank" rel="noopener noreferrer" aria-label="Website">
+                                <ExternalLink size={16} />
+                            </a>
                         </div>
                     </div>
                 </div>

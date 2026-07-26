@@ -15,4 +15,11 @@ export const FORM_CONFIG = {
 export const LANGUAGES = {
     ENGLISH: 'english',
     HINDI: 'hindi',
+    TAMIL: 'tamil',
 };
+
+export const LANGUAGE_LIST = [
+    { code: 'english', label: 'EN', name: 'English' },
+    { code: 'hindi', label: 'हि', name: 'हिंदी' },
+    { code: 'tamil', label: 'த', name: 'தமிழ்' },
+];

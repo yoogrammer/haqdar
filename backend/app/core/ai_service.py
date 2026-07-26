@@ -4,6 +4,7 @@ from typing import List, Dict
 from app.config import settings
 from app.utils.logger import logger
 
+
 class AIService:
     """Robust AI service with fallbacks and error handling"""
     
@@ -43,13 +44,14 @@ class AIService:
         language: str
     ) -> str:
         """Make actual API call to Groq"""
-        scheme_names = ', '.join([s['name'] for s in schemes[:5]])  # Top 5 only
+        scheme_names = ', '.join([s['name'] for s in schemes[:5]])
         
-        lang_instruction = (
-            "Write in simple Hindi (हिंदी) using Devanagari script."
-            if language == "hindi"
-            else "Write in simple, warm English."
-        )
+        if language == "hindi":
+            lang_instruction = "Write in simple Hindi (हिंदी) using Devanagari script."
+        elif language == "tamil":
+            lang_instruction = "Write in simple Tamil (தமிழ்) using Tamil script."
+        else:
+            lang_instruction = "Write in simple, warm English."
         
         prompt = f"""You are a compassionate government scheme advisor in India.
 
@@ -89,8 +91,13 @@ Keep it warm, simple, and motivating. No technical jargon."""
             return (
                 f"{name} जी, बधाई हो! आप {count} सरकारी योजनाओं के हकदार हैं "
                 f"जिनसे आपको सालाना ₹{benefit:,} तक का लाभ मिल सकता है। "
-                f"कृपया अभी अपने नजदीकी जन सेवा केंद्र (CSC) में जाकर आवेदन करें। "
-                f"यह पैसा आपका हक़ है!"
+                f"कृपया अभी अपने नजदीकी जन सेवा केंद्र (CSC) में जाकर आवेदन करें।"
+            )
+        elif language == "tamil":
+            return (
+                f"{name} அவர்களே, வாழ்த்துக்கள்! நீங்கள் {count} அரசு திட்டங்களுக்கு "
+                f"தகுதியானவர். ஆண்டுக்கு ₹{benefit:,} வரை நன்மை பெறலாம். "
+                f"தயவுசெய்து உங்கள் அருகிலுள்ள பொது சேவை மையத்தில் விண்ணப்பியுங்கள்."
             )
         return (
             f"Congratulations {name}! You qualify for {count} government schemes "
@@ -105,9 +112,15 @@ Keep it warm, simple, and motivating. No technical jargon."""
                 "आपकी प्रोफ़ाइल के आधार पर कोई सीधी योजना नहीं मिली। "
                 "कृपया व्यक्तिगत मार्गदर्शन के लिए अपने नजदीकी जन सेवा केंद्र में जाएँ।"
             )
+        elif language == "tamil":
+            return (
+                "உங்கள் சுயவிவரத்தின் அடிப்படையில் நேரடி திட்டங்கள் எதுவும் காணப்படவில்லை. "
+                "தனிப்பட்ட வழிகாட்டுதலுக்கு உங்கள் அருகிலுள்ள பொது சேவை மையத்தைப் பார்வையிடவும்."
+            )
         return (
             "No direct schemes matched your profile. Please visit your nearest "
             "Common Service Centre (CSC) for personalized guidance."
         )
+
 
 ai_service = AIService()

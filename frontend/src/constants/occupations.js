@@ -9,21 +9,22 @@ export const INDIAN_STATES = [
 ];
 
 // src/constants/occupations.js
+// src/constants/occupations.js
 export const OCCUPATIONS = [
-    { value: 'farmer', label: 'Farmer', hi: 'किसान', emoji: '🌾' },
-    { value: 'daily_wage', label: 'Daily Wage', hi: 'मजदूर', emoji: '🛠️' },
-    { value: 'street_vendor', label: 'Street Vendor', hi: 'रेहड़ीवाला', emoji: '🛒' },
-    { value: 'domestic_worker', label: 'Domestic Worker', hi: 'घरेलू काम', emoji: '🏠' },
-    { value: 'student', label: 'Student', hi: 'छात्र', emoji: '📚' },
-    { value: 'self_employed', label: 'Self Employed', hi: 'खुद का काम', emoji: '💼' },
-    { value: 'unemployed', label: 'Unemployed', hi: 'बेरोजगार', emoji: '🔍' },
-    { value: 'salaried', label: 'Salaried', hi: 'नौकरी', emoji: '🏢' },
+    { value: 'farmer', label: 'Farmer', hi: 'किसान', ta: 'விவசாயி', emoji: '🌾' },
+    { value: 'daily_wage', label: 'Daily Wage', hi: 'मजदूर', ta: 'கூலி வேலை', emoji: '🛠️' },
+    { value: 'street_vendor', label: 'Street Vendor', hi: 'रेहड़ीवाला', ta: 'வியாபாரி', emoji: '🛒' },
+    { value: 'domestic_worker', label: 'Domestic Worker', hi: 'घरेलू काम', ta: 'வீட்டு வேலை', emoji: '🏠' },
+    { value: 'student', label: 'Student', hi: 'छात्र', ta: 'மாணவர்', emoji: '📚' },
+    { value: 'self_employed', label: 'Self Employed', hi: 'खुद का काम', ta: 'சுய தொழில்', emoji: '💼' },
+    { value: 'unemployed', label: 'Unemployed', hi: 'बेरोजगार', ta: 'வேலையில்லாத', emoji: '🔍' },
+    { value: 'salaried', label: 'Salaried', hi: 'नौकरी', ta: 'ஊதியம்', emoji: '🏢' },
 ];
 
 export const INCOME_OPTIONS = [
-    { label: 'Below ₹50,000', hi: '₹50,000 से कम', value: 49000 },
-    { label: '₹50,000 – ₹1 lakh', hi: '₹50,000 – ₹1 लाख', value: 99000 },
-    { label: '₹1 lakh – ₹2 lakh', hi: '₹1 लाख – ₹2 लाख', value: 190000 },
-    { label: '₹2 lakh – ₹3 lakh', hi: '₹2 लाख – ₹3 लाख', value: 290000 },
-    { label: 'Above ₹3 lakh', hi: '₹3 लाख से ज़्यादा', value: 400000 },
+    { label: 'Below ₹50,000', hi: '₹50,000 से कम', ta: '₹50,000-க்கு கீழ்', value: 49000 },
+    { label: '₹50,000 – ₹1 lakh', hi: '₹50,000 – ₹1 लाख', ta: '₹50,000 – ₹1 லட்சம்', value: 99000 },
+    { label: '₹1 lakh – ₹2 lakh', hi: '₹1 लाख – ₹2 लाख', ta: '₹1 லட்சம் – ₹2 லட்சம்', value: 190000 },
+    { label: '₹2 lakh – ₹3 lakh', hi: '₹2 लाख – ₹3 लाख', ta: '₹2 லட்சம் – ₹3 லட்சம்', value: 290000 },
+    { label: 'Above ₹3 lakh', hi: '₹3 लाख से ज़्यादा', ta: '₹3 லட்சத்திற்கு மேல்', value: 400000 },
 ];

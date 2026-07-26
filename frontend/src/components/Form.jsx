@@ -167,6 +167,12 @@ const Form = ({ onSubmit, loading, error: externalError }) => {
                         className={`lang-pill ${language === LANGUAGES.HINDI ? 'active' : ''}`}
                         onClick={() => handleLanguageChange(LANGUAGES.HINDI)}
                     >हि</button>
+                    <span className="lang-divider">|</span>
+                    <button
+                        type="button"
+                        className={`lang-pill ${language === LANGUAGES.TAMIL ? 'active' : ''}`}
+                        onClick={() => handleLanguageChange(LANGUAGES.TAMIL)}
+                    >த</button>
                 </div>
             </header>
 

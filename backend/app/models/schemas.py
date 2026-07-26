@@ -21,6 +21,7 @@ class Caste(str, Enum):
 class Language(str, Enum):
     ENGLISH = "english"
     HINDI = "hindi"
+    TAMIL = "tamil"
 
 class UserProfile(BaseModel):
     """User profile with strict validation"""
