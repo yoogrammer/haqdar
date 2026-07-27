@@ -55,7 +55,7 @@ const Results = ({ results, onBack }) => {
                         Total annual benefit you can claim
                     </div>
                     <div className="res-benefit-amount">
-                        ₹<CountUp end={total_annual_benefit} duration={2.5} separator="," />
+                        ₹{new Intl.NumberFormat('en-IN').format(total_annual_benefit)}
                     </div>
                     <div className="res-benefit-sub">
                         This money is your legal right. Start applying today.

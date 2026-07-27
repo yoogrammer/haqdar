@@ -1,6 +1,7 @@
 // src/components/SchemeCard.jsx
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, FileText, MapPin, ExternalLink, Check } from 'lucide-react';
+import { ChevronDown, ChevronUp, FileText, MapPin, ExternalLink, Check, BookOpen } from 'lucide-react';
+import SchemeGuide from './SchemeGuide';
 
 const categoryStyles = {
     Housing: { color: '#DC2626', bg: '#FEF2F2', border: '#FECACA' },
@@ -16,6 +17,7 @@ const categoryStyles = {
 
 const SchemeCard = ({ scheme, index }) => {
     const [open, setOpen] = useState(false);
+    const [showGuide, setShowGuide] = useState(false);
     const style = categoryStyles[scheme.category] || { color: '#475569', bg: '#F8FAFC', border: '#E2E8F0' };
 
     const formatAmount = (amount) => {
@@ -25,90 +27,112 @@ const SchemeCard = ({ scheme, index }) => {
     };
 
     return (
-        <div
-            className={`sc ${open ? 'sc-open' : ''}`}
-            style={{ '--sc-color': style.color, '--sc-bg': style.bg, '--sc-border': style.border }}
-        >
-            {/* Top Row */}
-            <button className="sc-header" onClick={() => setOpen(!open)} type="button">
-                <div className="sc-left">
-                    <div className="sc-index" style={{ background: style.color }}>
-                        {index}
+        <>
+            <div
+                className={`sc ${open ? 'sc-open' : ''}`}
+                style={{ '--sc-color': style.color, '--sc-bg': style.bg, '--sc-border': style.border }}
+            >
+                {/* Top Row */}
+                <button className="sc-header" onClick={() => setOpen(!open)} type="button">
+                    <div className="sc-left">
+                        <div className="sc-index" style={{ background: style.color }}>
+                            {index}
+                        </div>
+                        <div className="sc-info">
+                            <span className="sc-tag" style={{ color: style.color, background: style.bg, border: `1px solid ${style.border}` }}>
+                                {scheme.category}
+                            </span>
+                            <h3 className="sc-name">{scheme.name}</h3>
+                            <p className="sc-name-hi">{scheme.name_hindi}</p>
+                        </div>
                     </div>
-                    <div className="sc-info">
-                        <span className="sc-tag" style={{ color: style.color, background: style.bg, border: `1px solid ${style.border}` }}>
-                            {scheme.category}
-                        </span>
-                        <h3 className="sc-name">{scheme.name}</h3>
-                        <p className="sc-name-hi">{scheme.name_hindi}</p>
+
+                    <div className="sc-right">
+                        <div className="sc-amount">
+                            <span className="sc-amount-value">{formatAmount(scheme.annual_benefit_value)}</span>
+                            <span className="sc-amount-label">/year</span>
+                        </div>
+                        <div className="sc-toggle">
+                            {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
+                        </div>
                     </div>
+                </button>
+
+                {/* Benefit Line */}
+                <div className="sc-benefit">
+                    <div className="sc-benefit-dot" style={{ background: style.color }}></div>
+                    <span>{scheme.benefit_hindi || scheme.benefit}</span>
                 </div>
 
-                <div className="sc-right">
-                    <div className="sc-amount">
-                        <span className="sc-amount-value">{formatAmount(scheme.annual_benefit_value)}</span>
-                        <span className="sc-amount-label">/year</span>
-                    </div>
-                    <div className="sc-toggle">
-                        {open ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
-                    </div>
-                </div>
-            </button>
+                {/* Expanded Details */}
+                {open && (
+                    <div className="sc-details">
+                        <div className="sc-details-grid">
 
-            {/* Benefit Line */}
-            <div className="sc-benefit">
-                <div className="sc-benefit-dot" style={{ background: style.color }}></div>
-                <span>{scheme.benefit_hindi || scheme.benefit}</span>
+                            {/* Documents */}
+                            <div className="sc-section">
+                                <div className="sc-section-title">
+                                    <FileText size={14} />
+                                    <span>Documents Required</span>
+                                </div>
+                                <div className="sc-section-title-hi">जरूरी कागजात</div>
+                                <ul className="sc-doc-list">
+                                    {(scheme.documents_hindi || scheme.documents).map((doc, i) => (
+                                        <li key={i}>
+                                            <Check size={12} strokeWidth={3} />
+                                            <span>{doc}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* Where to Apply */}
+                            <div className="sc-section">
+                                <div className="sc-section-title">
+                                    <MapPin size={14} />
+                                    <span>Where to Apply</span>
+                                </div>
+                                <div className="sc-section-title-hi">कहाँ जाएं</div>
+                                <p className="sc-apply-text">
+                                    {scheme.apply_at_hindi || scheme.apply_at}
+                                </p>
+
+                                <div className="sc-action-buttons">
+                                    <a
+                                        href={scheme.apply_online}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="sc-apply-btn"
+                                        style={{ background: style.color }}
+                                    >
+                                        Apply Online
+                                        <ExternalLink size={13} />
+                                    </a>
+
+                                    <button
+                                        className="sg-guide-btn"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            setShowGuide(true);
+                                        }}
+                                    >
+                                        <BookOpen size={14} />
+                                        How to Apply Guide
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
             </div>
 
-            {/* Expanded Details */}
-            {open && (
-                <div className="sc-details">
-                    <div className="sc-details-grid">
-
-                        {/* Documents */}
-                        <div className="sc-section">
-                            <div className="sc-section-title">
-                                <FileText size={14} />
-                                <span>Documents Required</span>
-                            </div>
-                            <div className="sc-section-title-hi">जरूरी कागजात</div>
-                            <ul className="sc-doc-list">
-                                {(scheme.documents_hindi || scheme.documents).map((doc, i) => (
-                                    <li key={i}>
-                                        <Check size={12} strokeWidth={3} />
-                                        <span>{doc}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-
-                        {/* Where to Apply */}
-                        <div className="sc-section">
-                            <div className="sc-section-title">
-                                <MapPin size={14} />
-                                <span>Where to Apply</span>
-                            </div>
-                            <div className="sc-section-title-hi">कहाँ जाएं</div>
-                            <p className="sc-apply-text">
-                                {scheme.apply_at_hindi || scheme.apply_at}
-                            </p>
-
-                            <a
-                                href={scheme.apply_online}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="sc-apply-btn"
-                                style={{ background: style.color }}
-                            >
-                                Apply Online
-                                <ExternalLink size={13} />
-                            </a>
-                        </div>
-                    </div>
-                </div>
+            {showGuide && (
+                <SchemeGuide
+                    scheme={scheme}
+                    onClose={() => setShowGuide(false)}
+                />
             )}
-        </div>
+        </>
     );
 };
 

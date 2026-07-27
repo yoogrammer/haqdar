@@ -105,6 +105,142 @@ async def get_all_schemes():
     }
 
 
+@router.get("/scheme-guide/{scheme_id}", tags=["Schemes"])
+async def get_scheme_guide(scheme_id: int):
+    """Get detailed application guide for a scheme"""
+    schemes = eligibility_engine.get_all_schemes()
+    scheme = next((s for s in schemes if s.get('id') == scheme_id), None)
+    
+    if not scheme:
+        raise HTTPException(status_code=404, detail="Scheme not found")
+    
+    # Get roadmap from JSON if available, else generate default
+    roadmap = scheme.get('roadmap', [])
+    if not roadmap:
+        apply_at = scheme.get('apply_at', 'Nearest office')
+        documents = scheme.get('documents', [])
+        roadmap = [
+            {
+                "step": 1,
+                "title": "Gather Documents",
+                "description": f"Collect: {', '.join(documents[:3])}",
+                "icon": "📋"
+            },
+            {
+                "step": 2,
+                "title": f"Visit {apply_at}",
+                "description": f"Go to {apply_at} with all documents",
+                "icon": "🏢"
+            },
+            {
+                "step": 3,
+                "title": "Fill Application",
+                "description": "Fill the form with correct details",
+                "icon": "📝"
+            },
+            {
+                "step": 4,
+                "title": "Submit Documents",
+                "description": "Submit form with document photocopies",
+                "icon": "📤"
+            },
+            {
+                "step": 5,
+                "title": "Track Application",
+                "description": "Keep receipt and follow up after 15-30 days",
+                "icon": "✅"
+            }
+        ]
+    
+    # Get rejections from JSON or use category defaults
+    common_rejections = scheme.get('common_rejections', [])
+    if not common_rejections:
+        category = scheme.get('category', 'General')
+        rejection_map = {
+            "Housing": [
+                "You already own a pucca house",
+                "Land documents not in your name",
+                "Income exceeds the limit"
+            ],
+            "Health": [
+                "Aadhaar not linked to bank account",
+                "Income certificate expired",
+                "Wrong family details submitted"
+            ],
+            "Education": [
+                "Income certificate not valid",
+                "School/college not registered",
+                "Caste certificate expired"
+            ],
+            "Agriculture": [
+                "Land records missing",
+                "Land not in applicant's name",
+                "Bank account not linked to Aadhaar"
+            ],
+            "Livelihood": [
+                "Business proof not clear",
+                "Bank account issues",
+                "Duplicate application submitted"
+            ],
+            "Employment": [
+                "Age criteria not met",
+                "Educational qualification proof missing",
+                "Local address proof issues"
+            ],
+            "Insurance": [
+                "Bank account not active",
+                "Age criteria not met",
+                "Existing similar policy"
+            ],
+            "Energy": [
+                "Address proof not matching",
+                "Already have connection in family",
+                "BPL certificate not valid"
+            ],
+            "Women & Child": [
+                "MCP card not registered",
+                "First pregnancy proof missing",
+                "Age below required limit"
+            ]
+        }
+        common_rejections = rejection_map.get(category, [
+            "Documents not properly attested",
+            "Information mismatch between documents",
+            "Application form incomplete"
+        ])
+    
+    # Get tips from JSON or use defaults
+    tips = scheme.get('tips', [
+        "Take multiple photocopies of every document",
+        "Ensure Aadhaar is linked to your bank account",
+        "Get documents attested by a gazetted officer",
+        "Save your application receipt safely",
+        "Follow up regularly to check status"
+    ])
+    
+    # Universal checklist
+    checklist = [
+        {"id": 1, "task": "Collect all required documents", "done": False},
+        {"id": 2, "task": "Take photocopies of documents", "done": False},
+        {"id": 3, "task": "Get documents attested (if needed)", "done": False},
+        {"id": 4, "task": "Visit application center/portal", "done": False},
+        {"id": 5, "task": "Fill application form", "done": False},
+        {"id": 6, "task": "Submit form with documents", "done": False},
+        {"id": 7, "task": "Save acknowledgment receipt", "done": False},
+        {"id": 8, "task": "Track application status", "done": False}
+    ]
+    
+    return {
+        "success": True,
+        "scheme": scheme,
+        "roadmap": roadmap,
+        "common_rejections": common_rejections,
+        "tips": tips,
+        "checklist": checklist,
+        "estimated_time": scheme.get('estimated_time', '15-90 days depending on scheme')
+    }
+
+
 @router.get("/stats", tags=["Admin"])
 async def get_stats():
     """Service and usage statistics"""
@@ -121,6 +257,8 @@ async def get_stats():
         stats["database"] = {"connected": False, "error": str(e)}
     
     return stats
+
+
 @router.post("/voice-chat", tags=["Voice"])
 async def voice_chat(request: dict):
     """Extract and validate value from user's spoken response."""
@@ -137,38 +275,13 @@ Rules:
 - name: Any name is valid. Extract just the name (e.g. "my name is Rohan" → "Rohan")
 - age: MUST be a number between 1-120. If unclear or not a number, return null
 - gender: MUST be "male", "female", or "other". If unclear, return null
-- state: MUST be a valid Indian state name (Maharashtra, Delhi, Uttar Pradesh, Bihar, Rajasthan, Tamil Nadu, Karnataka, Gujarat, West Bengal, etc.). If not a state, return null
-- residence: MUST be "rural" or "urban" (village=rural, city=urban, गाँव=rural, शहर=urban). If unclear, return null
-- occupation: MUST be ONE of: "farmer", "daily_wage", "student", "salaried", "self_employed", "unemployed", "domestic_worker", "street_vendor". If unclear or not a job, return null
-- income: MUST be a valid rupee amount (number). If user says something not related to money (like "laptop", "car"), return null. Convert lakh→100000, thousand→1000
+- state: MUST be a valid Indian state name. If not a state, return null
+- residence: MUST be "rural" or "urban" (village=rural, city=urban). If unclear, return null
+- occupation: MUST be ONE of: "farmer", "daily_wage", "student", "salaried", "self_employed", "unemployed", "domestic_worker", "street_vendor". If unclear, return null
+- income: MUST be a valid rupee amount. If not related to money, return null. Convert lakh→100000, thousand→1000
 - caste: MUST be "general", "obc", "sc", or "st". If unclear, return null
 
-If value is invalid or unclear, return null for value.
-
-Respond in JSON:
-{{"value": "extracted_value_or_null"}}
-
-Examples:
-User: "laptop" (field: income)
-Response: {{"value": null}}
-
-User: "50 thousand" (field: income)
-Response: {{"value": 50000}}
-
-User: "farmer" (field: occupation)
-Response: {{"value": "farmer"}}
-
-User: "I don't know" (field: age)
-Response: {{"value": null}}
-
-User: "I am 32" (field: age)
-Response: {{"value": 32}}
-
-User: "some place" (field: state)
-Response: {{"value": null}}
-
-User: "Maharashtra" (field: state)
-Response: {{"value": "Maharashtra"}}"""
+Respond in JSON: {{"value": "extracted_value_or_null"}}"""
 
         from groq import Groq
         client = Groq(api_key=settings.GROQ_API_KEY)
@@ -188,55 +301,30 @@ Response: {{"value": "Maharashtra"}}"""
         
         import json
         result = json.loads(result_text)
-        
         extracted = result.get("value")
         
-        # Additional validation
         if extracted is not None and extracted != "null":
             if field == "age":
                 try:
                     age = int(extracted)
-                    if age < 1 or age > 120:
-                        extracted = None
-                    else:
-                        extracted = age
+                    extracted = age if 1 <= age <= 120 else None
                 except:
                     extracted = None
-                    
             elif field == "income":
                 try:
                     income = int(extracted)
-                    if income < 0 or income > 100000000:
-                        extracted = None
-                    else:
-                        extracted = income
+                    extracted = income if 0 <= income <= 100000000 else None
                 except:
                     extracted = None
-                    
             elif field == "gender":
-                if str(extracted).lower() not in ["male", "female", "other"]:
-                    extracted = None
-                else:
-                    extracted = str(extracted).lower()
-                    
+                extracted = str(extracted).lower() if str(extracted).lower() in ["male", "female", "other"] else None
             elif field == "residence":
-                if str(extracted).lower() not in ["rural", "urban"]:
-                    extracted = None
-                else:
-                    extracted = str(extracted).lower()
-                    
+                extracted = str(extracted).lower() if str(extracted).lower() in ["rural", "urban"] else None
             elif field == "caste":
-                if str(extracted).lower() not in ["general", "obc", "sc", "st"]:
-                    extracted = None
-                else:
-                    extracted = str(extracted).lower()
-                    
+                extracted = str(extracted).lower() if str(extracted).lower() in ["general", "obc", "sc", "st"] else None
             elif field == "occupation":
-                valid_occupations = ["farmer", "daily_wage", "student", "salaried", "self_employed", "unemployed", "domestic_worker", "street_vendor"]
-                if str(extracted).lower() not in valid_occupations:
-                    extracted = None
-                else:
-                    extracted = str(extracted).lower()
+                valid = ["farmer", "daily_wage", "student", "salaried", "self_employed", "unemployed", "domestic_worker", "street_vendor"]
+                extracted = str(extracted).lower() if str(extracted).lower() in valid else None
         else:
             extracted = None
         
@@ -250,12 +338,9 @@ Response: {{"value": "Maharashtra"}}"""
         
     except Exception as e:
         logger.error(f"Extract error: {e}")
-        return {
-            "success": False,
-            "value": None,
-            "valid": False
-        }
-        
+        return {"success": False, "value": None, "valid": False}
+
+
 @router.post("/sarvam/speech-to-text", tags=["Voice"])
 async def sarvam_stt(request: dict):
     """Convert speech to text using Sarvam AI"""
@@ -265,10 +350,7 @@ async def sarvam_stt(request: dict):
     
     SARVAM_KEY = os.getenv("SARVAM_API_KEY", "").strip()
     
-    logger.info(f"Sarvam STT called. Key exists: {bool(SARVAM_KEY)}, Key length: {len(SARVAM_KEY)}")
-    
     if not SARVAM_KEY:
-        logger.error("SARVAM_API_KEY not found in environment")
         return {"success": False, "text": "", "error": "API key not configured"}
     
     try:
@@ -279,47 +361,33 @@ async def sarvam_stt(request: dict):
             return {"success": False, "text": "", "error": "No audio provided"}
         
         audio_bytes = base64.b64decode(audio_base64)
-        logger.info(f"Audio decoded: {len(audio_bytes)} bytes, language: {language}")
         
         async with httpx.AsyncClient() as client:
-            files = {
-                'file': ('audio.wav', audio_bytes, 'audio/wav')
-            }
+            files = {'file': ('audio.wav', audio_bytes, 'audio/wav')}
             data = {
                 'language_code': language,
                 'model': 'saarika:v2',
                 'with_timestamps': 'false'
             }
-            headers = {
-                'api-subscription-key': SARVAM_KEY
-            }
+            headers = {'api-subscription-key': SARVAM_KEY}
             
             response = await client.post(
                 'https://api.sarvam.ai/speech-to-text',
-                files=files,
-                data=data,
-                headers=headers,
-                timeout=15.0
+                files=files, data=data, headers=headers, timeout=15.0
             )
-            
-            logger.info(f"Sarvam STT response: {response.status_code}")
             
             if response.status_code == 200:
                 result = response.json()
-                text = result.get("transcript", "")
-                logger.info(f"Transcribed: {text}")
                 return {
                     "success": True,
-                    "text": text,
+                    "text": result.get("transcript", ""),
                     "language": result.get("language_code", language)
                 }
             else:
-                error_text = response.text
-                logger.error(f"Sarvam STT failed {response.status_code}: {error_text}")
-                return {"success": False, "text": "", "error": error_text}
+                return {"success": False, "text": "", "error": response.text}
                 
     except Exception as e:
-        logger.error(f"STT exception: {type(e).__name__}: {e}", exc_info=True)
+        logger.error(f"STT exception: {e}")
         return {"success": False, "text": "", "error": str(e)}
 
 
@@ -331,10 +399,7 @@ async def sarvam_tts(request: dict):
     
     SARVAM_KEY = os.getenv("SARVAM_API_KEY", "").strip()
     
-    logger.info(f"Sarvam TTS called. Key exists: {bool(SARVAM_KEY)}")
-    
     if not SARVAM_KEY:
-        logger.error("SARVAM_API_KEY not found")
         return {"success": False, "audio": None, "error": "API key not configured"}
     
     try:
@@ -344,8 +409,6 @@ async def sarvam_tts(request: dict):
         
         if not text:
             return {"success": False, "audio": None, "error": "No text provided"}
-        
-        logger.info(f"TTS request: text='{text[:50]}...', lang={language}, speaker={speaker}")
         
         async with httpx.AsyncClient() as client:
             payload = {
@@ -366,27 +429,19 @@ async def sarvam_tts(request: dict):
             
             response = await client.post(
                 'https://api.sarvam.ai/text-to-speech',
-                json=payload,
-                headers=headers,
-                timeout=20.0
+                json=payload, headers=headers, timeout=20.0
             )
-            
-            logger.info(f"Sarvam TTS response: {response.status_code}")
             
             if response.status_code == 200:
                 result = response.json()
                 audios = result.get("audios", [])
                 if audios:
-                    logger.info("TTS success")
                     return {"success": True, "audio": audios[0]}
                 else:
-                    logger.error(f"No audio in response: {result}")
                     return {"success": False, "audio": None, "error": "No audio returned"}
             else:
-                error_text = response.text
-                logger.error(f"Sarvam TTS failed {response.status_code}: {error_text}")
-                return {"success": False, "audio": None, "error": error_text}
+                return {"success": False, "audio": None, "error": response.text}
                 
     except Exception as e:
-        logger.error(f"TTS exception: {type(e).__name__}: {e}", exc_info=True)
+        logger.error(f"TTS exception: {e}")
         return {"success": False, "audio": None, "error": str(e)}

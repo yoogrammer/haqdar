@@ -39,6 +39,42 @@
             "rural",
             "bpl",
             "construction"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Gather Documents",
+                "description": "Collect Aadhaar, BPL Ration Card, Bank Passbook, and Land Documents."
+            },
+            {
+                "step": 2,
+                "title": "Visit Gram Panchayat",
+                "description": "Go to your Gram Panchayat office to collect the PMAY-G application form."
+            },
+            {
+                "step": 3,
+                "title": "Submit Application",
+                "description": "Fill the form and submit it along with your documents. Collect your receipt."
+            },
+            {
+                "step": 4,
+                "title": "Verification",
+                "description": "Authorities will verify your current housing situation and land documents."
+            },
+            {
+                "step": 5,
+                "title": "Track Status",
+                "description": "Use your application number on pmayg.nic.in to track approval."
+            }
+        ],
+        "common_rejections": [
+            "Applicant already owns a pucca house.",
+            "Income exceeds the maximum limit.",
+            "Land documents are not clear or not in the applicant's name."
+        ],
+        "tips": [
+            "Ensure your bank account is Aadhaar-seeded for direct benefit transfer.",
+            "Keep multiple photocopies of your land documents."
         ]
     },
     {
@@ -75,6 +111,42 @@
             "urban",
             "loan",
             "subsidy"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Select Property",
+                "description": "Finalize the urban property you wish to buy or construct."
+            },
+            {
+                "step": 2,
+                "title": "Approach Bank",
+                "description": "Visit a participating bank or housing finance company for a home loan."
+            },
+            {
+                "step": 3,
+                "title": "Apply for Subsidy",
+                "description": "Request the bank to apply for the PMAY Credit Linked Subsidy Scheme (CLSS) during loan processing."
+            },
+            {
+                "step": 4,
+                "title": "CNA Verification",
+                "description": "The bank sends your claim to the Central Nodal Agency (CNA) for verification."
+            },
+            {
+                "step": 5,
+                "title": "Subsidy Credited",
+                "description": "Once approved, the subsidy is credited to your loan account, reducing your EMI."
+            }
+        ],
+        "common_rejections": [
+            "Applicant or family member already owns a pucca house in India.",
+            "Income falls outside the specified EWS/LIG/MIG brackets.",
+            "Property location is outside the statutory town limits."
+        ],
+        "tips": [
+            "Apply in the name of the female head of the household to increase approval chances.",
+            "Confirm with your lender that they are registered under the PMAY CNA."
         ]
     },
     {
@@ -112,6 +184,41 @@
             "insurance",
             "hospital",
             "bpl"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Check Eligibility",
+                "description": "Verify your name in the PMJAY beneficiary list online or via the 14555 helpline."
+            },
+            {
+                "step": 2,
+                "title": "Visit Kiosk",
+                "description": "Go to an empanelled hospital or a Common Service Centre (CSC) with your Aadhaar and Ration Card."
+            },
+            {
+                "step": 3,
+                "title": "e-KYC Verification",
+                "description": "Complete fingerprint or OTP-based e-KYC to verify your identity."
+            },
+            {
+                "step": 4,
+                "title": "Collect Golden Card",
+                "description": "Get your Ayushman Bharat Golden Card printed for future use."
+            },
+            {
+                "step": 5,
+                "title": "Avail Treatment",
+                "description": "Show the card at any empanelled hospital for cashless treatment up to ₹5 Lakhs."
+            }
+        ],
+        "common_rejections": [
+            "Name not present in the SECC 2011 database or state ration list.",
+            "Biometric mismatch during e-KYC."
+        ],
+        "tips": [
+            "Always carry your Golden Card when visiting hospitals.",
+            "Download the PMJAY app to locate nearby empanelled hospitals easily."
         ]
     },
     {
@@ -154,6 +261,41 @@
             "women",
             "bpl",
             "energy"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Gather Documents",
+                "description": "Collect Aadhaar, BPL Ration Card, Bank details, and passport photos of the female applicant."
+            },
+            {
+                "step": 2,
+                "title": "Visit Distributor",
+                "description": "Go to the nearest LPG distributor (Indane, HP, or Bharat Gas)."
+            },
+            {
+                "step": 3,
+                "title": "Fill KYC Form",
+                "description": "Request and fill out the Ujjwala KYC form completely."
+            },
+            {
+                "step": 4,
+                "title": "Document Verification",
+                "description": "Submit documents. The agency will verify against the OMC deduplication system."
+            },
+            {
+                "step": 5,
+                "title": "Receive Connection",
+                "description": "Once cleared, you will receive the gas cylinder, regulator, and passbook."
+            }
+        ],
+        "common_rejections": [
+            "Another active LPG connection exists at the same address.",
+            "Applicant is male (must be an adult woman)."
+        ],
+        "tips": [
+            "Link your mobile number to your consumer ID to easily book refills.",
+            "Keep the blue book/passbook safe for subsidy tracking."
         ]
     },
     {
@@ -189,6 +331,42 @@
             "agriculture",
             "cash",
             "direct_benefit"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Prepare Records",
+                "description": "Get updated copies of your land records (Khasra/Khatauni) and bank details."
+            },
+            {
+                "step": 2,
+                "title": "Register Online / CSC",
+                "description": "Apply through the Farmer Corner on pmkisan.gov.in or visit a local CSC."
+            },
+            {
+                "step": 3,
+                "title": "State Verification",
+                "description": "State nodal officers will verify your land ownership and eligibility."
+            },
+            {
+                "step": 4,
+                "title": "Complete e-KYC",
+                "description": "Mandatory e-KYC must be completed on the portal to receive funds."
+            },
+            {
+                "step": 5,
+                "title": "Receive Installments",
+                "description": "₹2,000 will be credited directly to your account every 4 months."
+            }
+        ],
+        "common_rejections": [
+            "Name mismatch between Aadhaar and Bank Account.",
+            "Farmer pays income tax or holds an institutional land holding.",
+            "e-KYC is pending."
+        ],
+        "tips": [
+            "Regularly check your status on the PM Kisan portal.",
+            "Ensure your bank account is actively seeded with your Aadhaar."
         ]
     },
     {
@@ -225,6 +403,41 @@
             "agriculture",
             "insurance",
             "crop"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Get Sowing Certificate",
+                "description": "Obtain a sowing certificate from the village Patwari/Sarpanch."
+            },
+            {
+                "step": 2,
+                "title": "Apply at Bank/CSC",
+                "description": "Submit the application along with land and bank details before the cut-off date."
+            },
+            {
+                "step": 3,
+                "title": "Pay Premium",
+                "description": "Pay the nominal premium (1.5%-2% for Rabi/Kharif crops)."
+            },
+            {
+                "step": 4,
+                "title": "Report Damage",
+                "description": "In case of crop loss, inform the insurance company or bank within 72 hours."
+            },
+            {
+                "step": 5,
+                "title": "Claim Settlement",
+                "description": "Compensation is credited directly to your bank account post damage assessment."
+            }
+        ],
+        "common_rejections": [
+            "Application submitted after the seasonal cut-off date.",
+            "Mismatch in sown crop details and insured crop details."
+        ],
+        "tips": [
+            "Download the Crop Insurance App to easily report damages.",
+            "Non-loanee farmers must actively apply; loanee farmers are usually auto-enrolled."
         ]
     },
     {
@@ -262,6 +475,41 @@
             "loan",
             "credit",
             "agriculture"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Download Form",
+                "description": "Get the simple KCC form online or from your bank."
+            },
+            {
+                "step": 2,
+                "title": "Submit at Bank",
+                "description": "Submit form with land documents and Aadhaar to your bank branch."
+            },
+            {
+                "step": 3,
+                "title": "Limit Sanction",
+                "description": "The bank evaluates your land holding and crop pattern to set a credit limit."
+            },
+            {
+                "step": 4,
+                "title": "Card Issuance",
+                "description": "Receive your KCC ATM-enabled debit card."
+            },
+            {
+                "step": 5,
+                "title": "Utilize Funds",
+                "description": "Use funds for farming expenses. Repay promptly to get the 3% interest subvention."
+            }
+        ],
+        "common_rejections": [
+            "Poor credit history or existing default on agricultural loans.",
+            "Insufficient land holdings to justify the requested limit."
+        ],
+        "tips": [
+            "Repay the loan amount before the due date to enjoy an effective 4% interest rate.",
+            "You can combine KCC with PM Kisan for easier approval."
         ]
     },
     {
@@ -298,6 +546,41 @@
             "vendor",
             "informal",
             "livelihood"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Get Vendor ID",
+                "description": "Obtain a Certificate of Vending or ID card from the Urban Local Body (ULB)."
+            },
+            {
+                "step": 2,
+                "title": "Apply Online",
+                "description": "Visit the SVANidhi portal or a CSC to fill out the loan application."
+            },
+            {
+                "step": 3,
+                "title": "Bank Processing",
+                "description": "Your chosen bank will review and process the collateral-free loan."
+            },
+            {
+                "step": 4,
+                "title": "Disbursement",
+                "description": "The initial loan of ₹10,000 is credited directly to your bank account."
+            },
+            {
+                "step": 5,
+                "title": "Repay for Higher Limit",
+                "description": "Repay on time to become eligible for ₹20,000 and subsequently ₹50,000 loans."
+            }
+        ],
+        "common_rejections": [
+            "Lack of recognition as a vendor by the local municipality.",
+            "Aadhaar not linked to the provided mobile number."
+        ],
+        "tips": [
+            "Use digital payments to get cashback rewards up to ₹100 per month.",
+            "Timely repayment ensures you get the 7% interest subsidy credited quarterly."
         ]
     },
     {
@@ -337,6 +620,41 @@
             "business",
             "msme",
             "self_employed"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Prepare Business Plan",
+                "description": "Draft a simple document explaining your business model and required funds."
+            },
+            {
+                "step": 2,
+                "title": "Choose Loan Category",
+                "description": "Decide between Shishu (up to ₹50K), Kishore (₹50K-₹5L), or Tarun (₹5L-₹10L)."
+            },
+            {
+                "step": 3,
+                "title": "Approach Lender",
+                "description": "Visit a commercial bank, RRB, or NBFC with your application and documents."
+            },
+            {
+                "step": 4,
+                "title": "Bank Appraisal",
+                "description": "The lender assesses your business plan and credit history."
+            },
+            {
+                "step": 5,
+                "title": "Receive Funds",
+                "description": "Loan is disbursed, often along with a Mudra debit card for working capital."
+            }
+        ],
+        "common_rejections": [
+            "Poor CIBIL score or past loan defaults.",
+            "Unclear or unviable business plan."
+        ],
+        "tips": [
+            "For first-time borrowers, starting with the Shishu category has the highest approval rate.",
+            "Ensure you have proper quotations for machinery or equipment you intend to buy."
         ]
     },
     {
@@ -378,6 +696,41 @@
             "st",
             "women",
             "entrepreneur"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Ensure Greenfield Project",
+                "description": "Confirm your business is a new enterprise (first-time venture) in manufacturing, services, or trading."
+            },
+            {
+                "step": 2,
+                "title": "Register on Portal",
+                "description": "Register on standupmitra.in to connect with lenders and handholding agencies."
+            },
+            {
+                "step": 3,
+                "title": "Submit Detailed Plan",
+                "description": "Provide a comprehensive project report to the chosen bank branch."
+            },
+            {
+                "step": 4,
+                "title": "Margin Money",
+                "description": "Arrange 10-15% of the project cost as margin money."
+            },
+            {
+                "step": 5,
+                "title": "Disbursement",
+                "description": "Funds are released in phases based on the project's implementation stage."
+            }
+        ],
+        "common_rejections": [
+            "Business is not a greenfield (new) project.",
+            "Applicant cannot arrange the minimum margin money."
+        ],
+        "tips": [
+            "If it's a partnership, at least 51% shareholding must be held by an SC/ST or woman entrepreneur.",
+            "Seek help from Stand-Up Mitra handholding agencies to draft your project report."
         ]
     },
     {
@@ -418,6 +771,41 @@
             "scholarship",
             "sc",
             "children"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Collect Certificates",
+                "description": "Obtain valid Caste and Income certificates from the Tehsildar."
+            },
+            {
+                "step": 2,
+                "title": "Register on NSP",
+                "description": "Create a profile on the National Scholarship Portal (NSP)."
+            },
+            {
+                "step": 3,
+                "title": "Fill Application",
+                "description": "Select the correct Pre/Post Matric scheme and fill academic details."
+            },
+            {
+                "step": 4,
+                "title": "Institute Verification",
+                "description": "Submit a hard copy to your school/college for online verification."
+            },
+            {
+                "step": 5,
+                "title": "Fund Transfer",
+                "description": "Amount is credited via DBT to your Aadhaar-linked bank account."
+            }
+        ],
+        "common_rejections": [
+            "Income certificate is older than 6 months or exceeds limits.",
+            "School/College fails to verify the application before the deadline."
+        ],
+        "tips": [
+            "Double-check your bank account number and IFSC code before submitting.",
+            "Apply early to avoid last-minute portal crashes."
         ]
     },
     {
@@ -458,6 +846,41 @@
             "scholarship",
             "st",
             "tribal"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Collect Certificates",
+                "description": "Obtain a valid ST Caste Certificate and Income proof."
+            },
+            {
+                "step": 2,
+                "title": "Register Online",
+                "description": "Register as a student on the National Scholarship Portal (NSP)."
+            },
+            {
+                "step": 3,
+                "title": "Submit Details",
+                "description": "Enter fee receipts, academic scores, and upload documents."
+            },
+            {
+                "step": 4,
+                "title": "School Verification",
+                "description": "The institution verifies your bona fide student status."
+            },
+            {
+                "step": 5,
+                "title": "Direct Transfer",
+                "description": "The scholarship amount is sent directly to your bank account."
+            }
+        ],
+        "common_rejections": [
+            "Caste certificate format is not recognized by the state.",
+            "Bank account is inactive or not seeded with Aadhaar."
+        ],
+        "tips": [
+            "Keep fee receipts safe; you need to upload them for post-matric scholarships.",
+            "Ensure the spelling of your name matches exactly across Aadhaar, bank, and school records."
         ]
     },
     {
@@ -498,6 +921,41 @@
             "scholarship",
             "obc",
             "children"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Get OBC & Income Certs",
+                "description": "Ensure you have a recent non-creamy layer OBC certificate and income proof."
+            },
+            {
+                "step": 2,
+                "title": "NSP Portal Entry",
+                "description": "Log into scholarships.gov.in and select the state/central OBC scheme."
+            },
+            {
+                "step": 3,
+                "title": "Complete Form",
+                "description": "Fill out educational history and bank details securely."
+            },
+            {
+                "step": 4,
+                "title": "Institutional Check",
+                "description": "Notify your school/college nodal officer to approve the application online."
+            },
+            {
+                "step": 5,
+                "title": "Disbursement",
+                "description": "Funds are dispersed annually upon state level approval."
+            }
+        ],
+        "common_rejections": [
+            "Applicant falls under the Creamy Layer.",
+            "Previous year attendance is below the required threshold."
+        ],
+        "tips": [
+            "Renew your application every year; it does not carry over automatically.",
+            "Check if your state portal has a separate application process from the central NSP."
         ]
     },
     {
@@ -535,6 +993,41 @@
             "girl_child",
             "women",
             "protection"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Birth Registration",
+                "description": "Ensure the girl child's birth is officially registered."
+            },
+            {
+                "step": 2,
+                "title": "Visit Anganwadi",
+                "description": "Approach local Anganwadi worker for scheme enrollment forms."
+            },
+            {
+                "step": 3,
+                "title": "Open Bank Account",
+                "description": "Open a bank/post office account in the name of the girl child."
+            },
+            {
+                "step": 4,
+                "title": "Submit Documents",
+                "description": "Provide birth certificate and parent ID to the District Women & Child Development office."
+            },
+            {
+                "step": 5,
+                "title": "Avail Benefits",
+                "description": "Receive periodic educational incentives and health checkup support."
+            }
+        ],
+        "common_rejections": [
+            "Failure to immunize the child as per the mandatory schedule.",
+            "Child drops out of formal schooling."
+        ],
+        "tips": [
+            "Often paired with Sukanya Samriddhi Yojana for financial benefits.",
+            "Maintain school attendance above 75% to ensure continued support."
         ]
     },
     {
@@ -570,6 +1063,41 @@
             "savings",
             "education",
             "marriage"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Collect Documents",
+                "description": "Get the girl child's birth certificate and parents' KYC documents."
+            },
+            {
+                "step": 2,
+                "title": "Visit Branch",
+                "description": "Go to a Post Office or an authorized commercial bank."
+            },
+            {
+                "step": 3,
+                "title": "Fill Account Form",
+                "description": "Fill the SSY account opening form (Form-1)."
+            },
+            {
+                "step": 4,
+                "title": "Initial Deposit",
+                "description": "Make a minimum initial deposit of ₹250 to activate the account."
+            },
+            {
+                "step": 5,
+                "title": "Maintain Account",
+                "description": "Deposit at least ₹250 annually. Withdrawals permitted after age 18 for education."
+            }
+        ],
+        "common_rejections": [
+            "Girl child is older than 10 years at the time of opening.",
+            "Parents trying to open a third account (max 2 allowed, unless twins)."
+        ],
+        "tips": [
+            "Set up a standing instruction in your bank to ensure the minimum yearly deposit is met.",
+            "Contributions qualify for tax deduction under Section 80C."
         ]
     },
     {
@@ -605,6 +1133,41 @@
             "pregnancy",
             "maternity",
             "cash"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Register Pregnancy",
+                "description": "Register the pregnancy at an Anganwadi within 150 days of LMP."
+            },
+            {
+                "step": 2,
+                "title": "Get MCP Card",
+                "description": "Obtain the Mother and Child Protection (MCP) Card."
+            },
+            {
+                "step": 3,
+                "title": "First Installment",
+                "description": "Submit Form 1-A to get ₹1,000 after pregnancy registration."
+            },
+            {
+                "step": 4,
+                "title": "Second Installment",
+                "description": "Submit Form 1-B to get ₹2,000 after completing one ANC (after 6 months)."
+            },
+            {
+                "step": 5,
+                "title": "Third Installment",
+                "description": "Submit Form 1-C to get ₹2,000 after childbirth and first cycle of immunizations."
+            }
+        ],
+        "common_rejections": [
+            "Applicant is already a regular employee of Central/State Gov or PSUs.",
+            "Delay in registration beyond the permitted 150 days."
+        ],
+        "tips": [
+            "Keep the MCP card extremely safe as it tracks your eligibility for all installments.",
+            "The scheme is specifically for the first living child."
         ]
     },
     {
@@ -640,6 +1203,41 @@
             "pregnancy",
             "delivery",
             "maternity"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Connect with ASHA",
+                "description": "Identify your local ASHA worker during pregnancy."
+            },
+            {
+                "step": 2,
+                "title": "Regular Checkups",
+                "description": "Ensure you undergo at least three antenatal check-ups (ANC)."
+            },
+            {
+                "step": 3,
+                "title": "Institutional Delivery",
+                "description": "Deliver the baby at a government hospital or accredited private institution."
+            },
+            {
+                "step": 4,
+                "title": "Submit Details",
+                "description": "Provide bank details and JSY card to the hospital authorities post-delivery."
+            },
+            {
+                "step": 5,
+                "title": "Cash Transfer",
+                "description": "The incentive amount will be transferred directly to your bank account."
+            }
+        ],
+        "common_rejections": [
+            "Delivery took place at home rather than a registered institution.",
+            "Applicant did not complete the required antenatal check-ups."
+        ],
+        "tips": [
+            "ASHA workers get a separate incentive to help you, so utilize their guidance.",
+            "Carry all documents during the hospital admission for delivery."
         ]
     },
     {
@@ -674,6 +1272,41 @@
             "rural",
             "daily_wage",
             "work"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Register for Job Card",
+                "description": "Submit a verbal or written request for registration to your Gram Panchayat."
+            },
+            {
+                "step": 2,
+                "title": "Receive Job Card",
+                "description": "The Panchayat will issue a Job Card within 15 days of application."
+            },
+            {
+                "step": 3,
+                "title": "Demand Work",
+                "description": "Submit a formal request for work (specifying dates) to the Panchayat."
+            },
+            {
+                "step": 4,
+                "title": "Allocation",
+                "description": "You will be directed to a worksite within 5 km of your residence within 15 days."
+            },
+            {
+                "step": 5,
+                "title": "Payment",
+                "description": "Wages will be credited directly to your bank account within 15 days of work completion."
+            }
+        ],
+        "common_rejections": [
+            "Applicant is not a local resident of the Gram Panchayat.",
+            "Household has already completed the 100-day limit for the financial year."
+        ],
+        "tips": [
+            "If work is not provided within 15 days, you are entitled to an unemployment allowance.",
+            "Demand receipts for every application for work submitted to the Panchayat."
         ]
     },
     {
@@ -710,6 +1343,41 @@
             "training",
             "employment",
             "youth"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Find Training Centre",
+                "description": "Locate an authorized PMKVY training center near you online."
+            },
+            {
+                "step": 2,
+                "title": "Enroll in Course",
+                "description": "Choose a sector/skill and enroll with your Aadhaar and education docs."
+            },
+            {
+                "step": 3,
+                "title": "Complete Training",
+                "description": "Attend the short-term training (STT) and maintain biometric attendance."
+            },
+            {
+                "step": 4,
+                "title": "Assessment",
+                "description": "Pass the final assessment conducted by Sector Skill Councils."
+            },
+            {
+                "step": 5,
+                "title": "Certification & Reward",
+                "description": "Receive a certificate and reward money, plus placement assistance."
+            }
+        ],
+        "common_rejections": [
+            "Insufficient biometric attendance during the course.",
+            "Failing the final practical/theory assessment."
+        ],
+        "tips": [
+            "Choose a skill that has high demand in your local job market.",
+            "Take advantage of the Rozgar Melas (job fairs) organized for PMKVY certified candidates."
         ]
     },
     {
@@ -741,6 +1409,41 @@
             "accident",
             "bank",
             "cheap"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Maintain Balance",
+                "description": "Ensure your savings account has at least ₹20 by the end of May."
+            },
+            {
+                "step": 2,
+                "title": "Fill Consent Form",
+                "description": "Visit your bank or use net banking to consent to auto-debit."
+            },
+            {
+                "step": 3,
+                "title": "Auto-Debit",
+                "description": "₹20 is deducted annually between May 25 and May 31."
+            },
+            {
+                "step": 4,
+                "title": "Policy Active",
+                "description": "Insurance coverage runs from June 1 to May 31 of the next year."
+            },
+            {
+                "step": 5,
+                "title": "Claim Process",
+                "description": "In case of accident, nominee submits FIR and death/disability certificate to bank."
+            }
+        ],
+        "common_rejections": [
+            "Insufficient bank balance during the auto-debit period.",
+            "Account holder turns 70 years old (coverage stops automatically)."
+        ],
+        "tips": [
+            "Always update your nominee details accurately in your bank account.",
+            "You can only subscribe to this scheme via one bank account, even if you hold multiple."
         ]
     },
     {
@@ -772,6 +1475,41 @@
             "life",
             "bank",
             "family"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Check Eligibility",
+                "description": "Confirm your age is between 18-50 and you have a savings account."
+            },
+            {
+                "step": 2,
+                "title": "Submit Form",
+                "description": "Fill the PMJJBY enrollment form at your bank or via mobile banking."
+            },
+            {
+                "step": 3,
+                "title": "Auto-Debit",
+                "description": "Ensure ₹436 is available for auto-debit before May 31 every year."
+            },
+            {
+                "step": 4,
+                "title": "Coverage Begins",
+                "description": "Risk cover begins 30 days after enrollment (except for accidents)."
+            },
+            {
+                "step": 5,
+                "title": "Claim Process",
+                "description": "Nominee must approach the bank with death certificate within 30 days of death."
+            }
+        ],
+        "common_rejections": [
+            "Auto-debit fails due to insufficient balance.",
+            "Death occurs within the first 30 days (lien period) due to natural causes."
+        ],
+        "tips": [
+            "This is term life insurance; there is no maturity benefit if you survive.",
+            "Pair this with PMSBY (Accident insurance) for comprehensive cheap coverage."
         ]
     },
     {
@@ -805,6 +1543,41 @@
             "elderly",
             "savings",
             "retirement"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Decide Pension Amount",
+                "description": "Choose a guaranteed pension amount between ₹1,000 and ₹5,000."
+            },
+            {
+                "step": 2,
+                "title": "Submit Application",
+                "description": "Fill the APY form at your bank branch with Aadhaar details."
+            },
+            {
+                "step": 3,
+                "title": "Set Auto-Debit",
+                "description": "Set up monthly, quarterly, or half-yearly auto-debits."
+            },
+            {
+                "step": 4,
+                "title": "Consistent Saving",
+                "description": "Maintain balance for auto-debits until you reach 60 years of age."
+            },
+            {
+                "step": 5,
+                "title": "Receive Pension",
+                "description": "At age 60, submit a request to the bank to start receiving the monthly pension."
+            }
+        ],
+        "common_rejections": [
+            "Applicant is an income tax payer (rules updated recently to exclude taxpayers).",
+            "Account deactivated due to continuous non-payment of contributions."
+        ],
+        "tips": [
+            "Join as early as age 18 to keep your monthly contribution extremely low.",
+            "Spouse will receive the same pension after the subscriber's death."
         ]
     },
     {
@@ -842,6 +1615,41 @@
             "elderly",
             "bpl",
             "old_age"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Gather Proofs",
+                "description": "Collect age proof (Voter ID/Aadhaar) and BPL Ration card."
+            },
+            {
+                "step": 2,
+                "title": "Submit Form",
+                "description": "Apply at the local Gram Panchayat or Municipal office."
+            },
+            {
+                "step": 3,
+                "title": "Verification",
+                "description": "Social welfare department verifies age and BPL status."
+            },
+            {
+                "step": 4,
+                "title": "Approval",
+                "description": "Upon approval, the name is added to the district pension list."
+            },
+            {
+                "step": 5,
+                "title": "Pension Disbursal",
+                "description": "Pension credited monthly directly to the bank/post office account."
+            }
+        ],
+        "common_rejections": [
+            "Applicant is not strictly below the poverty line (BPL).",
+            "Age proof is invalid or shows age under 60."
+        ],
+        "tips": [
+            "Pension amount jumps to ₹500/month automatically when the beneficiary crosses 80 years of age.",
+            "Keep the bank account active to prevent funds from bouncing back."
         ]
     },
     {
@@ -880,6 +1688,41 @@
             "widow",
             "women",
             "bpl"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Obtain Certificates",
+                "description": "Secure husband's death certificate and BPL card."
+            },
+            {
+                "step": 2,
+                "title": "Submit Application",
+                "description": "Apply at the Tehsil office or Gram Panchayat."
+            },
+            {
+                "step": 3,
+                "title": "Official Review",
+                "description": "The application is reviewed by the block development officer."
+            },
+            {
+                "step": 4,
+                "title": "Sanction",
+                "description": "Once sanctioned, an order is issued in the applicant's name."
+            },
+            {
+                "step": 5,
+                "title": "Direct Transfer",
+                "description": "₹300 per month is credited into the widow's bank account."
+            }
+        ],
+        "common_rejections": [
+            "Applicant remarries (which invalidates eligibility).",
+            "Age is below 40 years."
+        ],
+        "tips": [
+            "Many states top-up this amount, so your actual monthly pension might be higher.",
+            "Ensure the death certificate clearly lists the applicant as the spouse."
         ]
     },
     {
@@ -914,6 +1757,41 @@
             "pension",
             "disability",
             "differently_abled"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Get Medical Board Cert",
+                "description": "Obtain a severe/multiple disability certificate (80% or more) from a Govt Hospital."
+            },
+            {
+                "step": 2,
+                "title": "Submit Form",
+                "description": "Submit application with BPL proof to District Social Welfare office."
+            },
+            {
+                "step": 3,
+                "title": "Verification",
+                "description": "Authorities verify the extent of disability and BPL status."
+            },
+            {
+                "step": 4,
+                "title": "Approval",
+                "description": "Pension gets approved and linked to your bank account."
+            },
+            {
+                "step": 5,
+                "title": "Monthly Credit",
+                "description": "Receive monthly pension via Direct Benefit Transfer."
+            }
+        ],
+        "common_rejections": [
+            "Disability level is less than 80%.",
+            "Applicant is not from a BPL household."
+        ],
+        "tips": [
+            "Applying for a UDID (Unique Disability ID) card makes the process much smoother.",
+            "When the beneficiary turns 80, the pension converts to Old Age Pension."
         ]
     },
     {
@@ -950,6 +1828,41 @@
             "death",
             "support",
             "bpl"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Obtain Death Certificate",
+                "description": "Get the death certificate of the primary breadwinner."
+            },
+            {
+                "step": 2,
+                "title": "Prepare Documents",
+                "description": "Compile BPL card, FIR (if unnatural death), and applicant's ID."
+            },
+            {
+                "step": 3,
+                "title": "Apply Promptly",
+                "description": "Submit the application to the local Tehsil/SDM office within 1 year of death."
+            },
+            {
+                "step": 4,
+                "title": "Field Verification",
+                "description": "An officer will visit to verify that the deceased was indeed the primary earner."
+            },
+            {
+                "step": 5,
+                "title": "Lump Sum Transfer",
+                "description": "₹20,000 is credited as a one-time grant to the surviving head of family."
+            }
+        ],
+        "common_rejections": [
+            "Application submitted more than 1 year after the death.",
+            "Deceased was over 59 years old at the time of death."
+        ],
+        "tips": [
+            "Ensure the age of the deceased on the death certificate is between 18 and 59.",
+            "Do not delay; strict timelines apply to this bereavement scheme."
         ]
     },
     {
@@ -984,6 +1897,41 @@
             "fishermen",
             "livelihood",
             "coastal"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Register with Dept",
+                "description": "Ensure you are registered with the State Fisheries Department."
+            },
+            {
+                "step": 2,
+                "title": "Submit Project Proposal",
+                "description": "Draft a proposal (e.g., buying a boat, nets, or setting up a pond)."
+            },
+            {
+                "step": 3,
+                "title": "Apply for Subsidy",
+                "description": "Submit application to the District Fisheries Officer."
+            },
+            {
+                "step": 4,
+                "title": "Approval & Financing",
+                "description": "Project gets approved; you may need to arrange a bank loan for the rest."
+            },
+            {
+                "step": 5,
+                "title": "Subsidy Release",
+                "description": "Subsidy (up to 40% for Gen, 60% for SC/ST/Women) is released post implementation."
+            }
+        ],
+        "common_rejections": [
+            "Project proposal lacks technical feasibility.",
+            "Applicant lacks land/water body ownership or valid lease."
+        ],
+        "tips": [
+            "Forming a cooperative or Self Help Group (SHG) significantly increases approval chances.",
+            "Subsidies are strictly back-ended, meaning you get them after purchasing the assets."
         ]
     },
     {
@@ -1016,6 +1964,40 @@
             "soil",
             "agriculture",
             "free"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Sample Collection",
+                "description": "State officials collect soil samples from your farm grid."
+            },
+            {
+                "step": 2,
+                "title": "Lab Testing",
+                "description": "Sample is sent to testing lab for 12 parameters (N, P, K, etc.)."
+            },
+            {
+                "step": 3,
+                "title": "Report Generation",
+                "description": "Lab creates a customized report for your specific land."
+            },
+            {
+                "step": 4,
+                "title": "Card Distribution",
+                "description": "The printed Soil Health Card is distributed to you via Panchayat/KVK."
+            },
+            {
+                "step": 5,
+                "title": "Apply Fertilizer",
+                "description": "Follow the card's recommendations to save money and improve yield."
+            }
+        ],
+        "common_rejections": [
+            "Rarely rejected, but samples can be delayed if logistics fail."
+        ],
+        "tips": [
+            "If officials haven't visited, you can take a sample yourself and submit it to a local KVK.",
+            "The card is renewed every 2 years to track soil improvement."
         ]
     },
     {
@@ -1049,6 +2031,41 @@
             "retirement",
             "savings",
             "tax"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Choose POP",
+                "description": "Select a Point of Presence (bank/post office) or register online at eNPS."
+            },
+            {
+                "step": 2,
+                "title": "Fill Form & KYC",
+                "description": "Provide PAN and complete KYC to generate your PRAN (Permanent Retirement Account Number)."
+            },
+            {
+                "step": 3,
+                "title": "Select Fund Manager",
+                "description": "Choose a Pension Fund Manager and investment choice (Auto or Active)."
+            },
+            {
+                "step": 4,
+                "title": "Regular Contributions",
+                "description": "Deposit minimum ₹1,000 annually into your Tier-I account."
+            },
+            {
+                "step": 5,
+                "title": "Retirement Corpus",
+                "description": "At age 60, withdraw 60% tax-free and buy an annuity with the remaining 40%."
+            }
+        ],
+        "common_rejections": [
+            "PAN card is not linked with Aadhaar.",
+            "Failing to make the minimum yearly contribution freezes the account."
+        ],
+        "tips": [
+            "NPS offers an additional ₹50,000 tax deduction under section 80CCD(1B).",
+            "Choose 'Auto Choice' if you don't know how to allocate between Equity and Debt."
         ]
     },
     {
@@ -1081,6 +2098,41 @@
             "senior_citizen",
             "elderly",
             "lic"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Decide Investment",
+                "description": "Decide lump-sum amount (up to ₹15 Lakh) based on the monthly pension needed."
+            },
+            {
+                "step": 2,
+                "title": "Visit LIC",
+                "description": "LIC of India is the sole operator; visit a branch or use their portal."
+            },
+            {
+                "step": 3,
+                "title": "Submit KYC",
+                "description": "Submit age proof and bank details for pension crediting."
+            },
+            {
+                "step": 4,
+                "title": "Pay Premium",
+                "description": "Pay the single premium lump-sum amount."
+            },
+            {
+                "step": 5,
+                "title": "Receive Returns",
+                "description": "Get guaranteed pension for 10 years, plus return of principal at the end."
+            }
+        ],
+        "common_rejections": [
+            "Applicant is below 60 years of age.",
+            "Total investment exceeds the ₹15 Lakh cap per senior citizen."
+        ],
+        "tips": [
+            "You can take a loan up to 75% of purchase price after 3 policy years.",
+            "This scheme's subscription window periodically closes, check current availability."
         ]
     },
     {
@@ -1113,6 +2165,41 @@
             "ration",
             "bpl",
             "free"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Link Aadhaar",
+                "description": "Ensure your Aadhaar is linked to your existing Ration Card."
+            },
+            {
+                "step": 2,
+                "title": "Check Allocation",
+                "description": "Verify your family's grain allocation online on the state PDS portal."
+            },
+            {
+                "step": 3,
+                "title": "Visit FPS",
+                "description": "Go to your local Fair Price Shop (Ration shop)."
+            },
+            {
+                "step": 4,
+                "title": "Biometric Auth",
+                "description": "Provide fingerprint on the e-PoS machine to authenticate."
+            },
+            {
+                "step": 5,
+                "title": "Collect Ration",
+                "description": "Receive 5kg free grain per family member directly from the dealer."
+            }
+        ],
+        "common_rejections": [
+            "Ration card is inactive due to long periods of non-use.",
+            "Thumbprint fails to register on the e-PoS machine."
+        ],
+        "tips": [
+            "Under 'One Nation One Ration Card', you can claim this from any state in India.",
+            "Demand a printed receipt from the e-PoS machine to prevent fraud."
         ]
     },
     {
@@ -1145,6 +2232,41 @@
             "ration",
             "poorest",
             "subsidy"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Survey Inclusion",
+                "description": "Panchayat identifies the 'poorest of the poor' families for AAY."
+            },
+            {
+                "step": 2,
+                "title": "Issue of AAY Card",
+                "description": "A distinct color-coded Antyodaya Ration Card is issued."
+            },
+            {
+                "step": 3,
+                "title": "Visit FPS",
+                "description": "Visit the Ration shop monthly with the AAY card and Aadhaar."
+            },
+            {
+                "step": 4,
+                "title": "Pay Subsidy Rate",
+                "description": "Pay ₹3/kg for rice and ₹2/kg for wheat."
+            },
+            {
+                "step": 5,
+                "title": "Collect Quota",
+                "description": "Collect the flat 35kg allocation regardless of family size."
+            }
+        ],
+        "common_rejections": [
+            "Family income is deemed too high during the Panchayat review.",
+            "Applicant is already holding a Priority Household (PHH) card instead."
+        ],
+        "tips": [
+            "Widows, terminally ill persons, and disabled persons without support have priority for AAY.",
+            "Ensure the dealer gives the full 35kg; partial giving is illegal."
         ]
     },
     {
@@ -1176,6 +2298,41 @@
             "rural",
             "tap",
             "free"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Village Resolution",
+                "description": "Gram Sabha passes a resolution for water supply scheme implementation."
+            },
+            {
+                "step": 2,
+                "title": "Form Committee",
+                "description": "A Village Water and Sanitation Committee (VWSC) is formed."
+            },
+            {
+                "step": 3,
+                "title": "Apply for Connection",
+                "description": "Submit a request to the VWSC for a household Functional Household Tap Connection (FHTC)."
+            },
+            {
+                "step": 4,
+                "title": "Infrastructure Setup",
+                "description": "Govt lays pipes and builds overhead tanks."
+            },
+            {
+                "step": 5,
+                "title": "Tap Installation",
+                "description": "Tap is installed in your premises providing 55 liters per capita per day."
+            }
+        ],
+        "common_rejections": [
+            "House is not technically feasible for piping without major restructuring.",
+            "Applicant is in an urban zone (scheme is rural only)."
+        ],
+        "tips": [
+            "The community must contribute a small percentage (cash/labor) to ensure ownership.",
+            "Report water quality issues directly to the VWSC."
         ]
     },
     {
@@ -1212,6 +2369,41 @@
             "sanitation",
             "rural",
             "construction"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Apply Online/Offline",
+                "description": "Submit application form at Gram Panchayat or via the SBM app."
+            },
+            {
+                "step": 2,
+                "title": "Block Verification",
+                "description": "Block officer visits to verify you do not already have a toilet."
+            },
+            {
+                "step": 3,
+                "title": "Start Construction",
+                "description": "Begin building the twin-pit toilet using your own funds temporarily."
+            },
+            {
+                "step": 4,
+                "title": "Geo-tagging",
+                "description": "Officer clicks a photo of the completed toilet with you for geo-tagging."
+            },
+            {
+                "step": 5,
+                "title": "Payment Release",
+                "description": "₹12,000 incentive is transferred directly to your bank account."
+            }
+        ],
+        "common_rejections": [
+            "House already has a functional toilet.",
+            "Construction does not meet the prescribed twin-pit standards."
+        ],
+        "tips": [
+            "Do not build a septic tank; the scheme promotes twin-pit pour-flush toilets.",
+            "Take clear photos at different stages of construction just in case."
         ]
     },
     {
@@ -1248,6 +2440,41 @@
             "free",
             "connection",
             "bpl"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Check Camps",
+                "description": "Look out for DISCOM camps set up in your village."
+            },
+            {
+                "step": 2,
+                "title": "Submit KYC",
+                "description": "Provide Aadhaar and BPL card to the DISCOM officer."
+            },
+            {
+                "step": 3,
+                "title": "On-spot Registration",
+                "description": "Officers do paperless registration via web app on the spot."
+            },
+            {
+                "step": 4,
+                "title": "Line Extension",
+                "description": "Wiring is pulled from the nearest electric pole to your home."
+            },
+            {
+                "step": 5,
+                "title": "Meter Installation",
+                "description": "Meter, LED bulb, and mobile charging point are installed for free."
+            }
+        ],
+        "common_rejections": [
+            "Household already has a registered electricity connection.",
+            "Non-BPL families applying for free (they must pay ₹500 in 10 EMIs)."
+        ],
+        "tips": [
+            "Only the connection is free; you still have to pay the monthly electricity consumption bill.",
+            "If your area is entirely off-grid, a solar power pack is provided instead."
         ]
     },
     {
@@ -1279,6 +2506,40 @@
             "children",
             "school",
             "education"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Enroll Child",
+                "description": "Admit the child in Class 1 to 8 in a Govt/Govt-aided school."
+            },
+            {
+                "step": 2,
+                "title": "Auto-Inclusion",
+                "description": "No separate application needed; all attending students are covered."
+            },
+            {
+                "step": 3,
+                "title": "Attend School",
+                "description": "Child attends school on working days."
+            },
+            {
+                "step": 4,
+                "title": "Meal Service",
+                "description": "Hot cooked meal meeting specific nutritional norms is served during break."
+            },
+            {
+                "step": 5,
+                "title": "Food Security Allowance",
+                "description": "If meal isn't served on a given day, an allowance must be paid."
+            }
+        ],
+        "common_rejections": [
+            "Child is enrolled in a private, unaided school."
+        ],
+        "tips": [
+            "Parents have the right to inspect the kitchen and taste the food quality.",
+            "The scheme is now officially known as PM POSHAN."
         ]
     },
     {
@@ -1311,6 +2572,40 @@
             "nutrition",
             "anganwadi",
             "pre_school"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Locate Anganwadi",
+                "description": "Find the Anganwadi Centre assigned to your ward/village."
+            },
+            {
+                "step": 2,
+                "title": "Register Child",
+                "description": "Register the child with the Anganwadi Worker (AWW)."
+            },
+            {
+                "step": 3,
+                "title": "Growth Monitoring",
+                "description": "Take the child for regular weighing to track malnutrition."
+            },
+            {
+                "step": 4,
+                "title": "Collect Ration/Meals",
+                "description": "Receive Take-Home Ration (THR) or hot meals based on age."
+            },
+            {
+                "step": 5,
+                "title": "Pre-School Ed",
+                "description": "Send children aged 3-6 daily for non-formal pre-school learning."
+            }
+        ],
+        "common_rejections": [
+            "Child crosses 6 years of age (they should transition to standard school)."
+        ],
+        "tips": [
+            "Pregnant and lactating mothers can also receive nutritional support here.",
+            "Make sure the child's immunization schedule is recorded by the Anganwadi worker."
         ]
     },
     {
@@ -1347,6 +2642,41 @@
             "skill",
             "employment",
             "self_employed"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Join SHG",
+                "description": "Form or join an urban Self Help Group via community organizers."
+            },
+            {
+                "step": 2,
+                "title": "Skill Training",
+                "description": "Enroll in free skill placement programs tailored for urban markets."
+            },
+            {
+                "step": 3,
+                "title": "Apply for SEP",
+                "description": "Apply for Self Employment Programme loan (up to ₹2 Lakh for individuals)."
+            },
+            {
+                "step": 4,
+                "title": "Bank Processing",
+                "description": "Banks process loan applications with interest subvention up to 7%."
+            },
+            {
+                "step": 5,
+                "title": "Setup Enterprise",
+                "description": "Start your micro-enterprise with ongoing support from the mission."
+            }
+        ],
+        "common_rejections": [
+            "Applicant lives outside municipal limits (rural).",
+            "Credit history issues prevent bank loan approval."
+        ],
+        "tips": [
+            "Applying as a group (SHG) increases the loan limit to ₹10 Lakhs.",
+            "Street vendors get special ID cards and vending zones under this scheme."
         ]
     },
     {
@@ -1382,6 +2712,41 @@
             "skill",
             "loan",
             "toolkit"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "CSC Registration",
+                "description": "Visit a CSC with Aadhaar and register as one of 18 traditional trades."
+            },
+            {
+                "step": 2,
+                "title": "Three-tier Verification",
+                "description": "Gram Panchayat, District, and State committees verify your artisan status."
+            },
+            {
+                "step": 3,
+                "title": "Receive ID",
+                "description": "Get PM Vishwakarma Certificate and ID card."
+            },
+            {
+                "step": 4,
+                "title": "Basic Training",
+                "description": "Attend 5-day training; receive ₹500/day stipend and ₹15,000 toolkit grant."
+            },
+            {
+                "step": 5,
+                "title": "Avail Loan",
+                "description": "Apply for 1st tranche loan of ₹1 Lakh at 5% interest."
+            }
+        ],
+        "common_rejections": [
+            "Trade does not fall under the 18 specific traditional crafts recognized.",
+            "Applicant or spouse is in government service."
+        ],
+        "tips": [
+            "Do digital transactions to get ₹1 per transaction cashback (max 100/month).",
+            "Repay the first ₹1 Lakh loan on time to unlock the second ₹2 Lakh tranche."
         ]
     },
     {
@@ -1423,6 +2788,41 @@
             "sc",
             "st",
             "obc"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Find Institute",
+                "description": "Check the portal for empanelled institutes offering your desired course."
+            },
+            {
+                "step": 2,
+                "title": "Online Application",
+                "description": "Apply online during the window (usually twice a year)."
+            },
+            {
+                "step": 3,
+                "title": "Merit Selection",
+                "description": "Selection is based on Class 12th/Degree marks merit."
+            },
+            {
+                "step": 4,
+                "title": "Enroll",
+                "description": "Join the coaching center physically. Course fees are paid directly to them."
+            },
+            {
+                "step": 5,
+                "title": "Stipend",
+                "description": "Receive monthly stipend (₹4000 local/₹6000 outstation) for expenses."
+            }
+        ],
+        "common_rejections": [
+            "Applicant's family income exceeds ₹8 Lakh (recent update, check limits).",
+            "Applicant has already availed coaching under this scheme previously."
+        ],
+        "tips": [
+            "Maintain high attendance; stipends are cut if attendance drops below thresholds.",
+            "You can only avail this scheme once in a lifetime."
         ]
     },
     {
@@ -1460,6 +2860,41 @@
             "youth",
             "stipend",
             "employment"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Register on Portal",
+                "description": "Create a profile on pminternship.mca.gov.in using Aadhaar."
+            },
+            {
+                "step": 2,
+                "title": "Browse Opportunities",
+                "description": "Search for internship openings posted by top 500 partner companies."
+            },
+            {
+                "step": 3,
+                "title": "Apply & Interview",
+                "description": "Submit applications and clear the company's interview process."
+            },
+            {
+                "step": 4,
+                "title": "Join Internship",
+                "description": "Accept offer and begin 12-month training program."
+            },
+            {
+                "step": 5,
+                "title": "Receive Stipend",
+                "description": "₹4500 is paid by Govt via DBT, ₹500 paid by company monthly."
+            }
+        ],
+        "common_rejections": [
+            "Applicant comes from a family with a Govt employee.",
+            "Graduates from elite institutions (IIT/IIM/NLU) are excluded."
+        ],
+        "tips": [
+            "Keep your skills profile updated on the portal to match with better companies.",
+            "You will get a one-time grant of ₹6,000 upon joining to cover relocation/setup."
         ]
     },
     {
@@ -1497,6 +2932,41 @@
             "disability",
             "aids",
             "bpl"
+        ],
+        "roadmap": [
+            {
+                "step": 1,
+                "title": "Look for Camps",
+                "description": "Wait for assessment camps organized by ALIMCO in your district."
+            },
+            {
+                "step": 2,
+                "title": "Medical Assessment",
+                "description": "Doctors at the camp assess vision, hearing, or motor disabilities."
+            },
+            {
+                "step": 3,
+                "title": "Submit Documents",
+                "description": "Provide Age proof (60+) and BPL proof at the camp."
+            },
+            {
+                "step": 4,
+                "title": "Device Manufacturing",
+                "description": "ALIMCO custom prepares devices (spectacles, hearing aids, wheelchairs)."
+            },
+            {
+                "step": 5,
+                "title": "Distribution Camp",
+                "description": "Attend the follow-up distribution camp to receive your free device."
+            }
+        ],
+        "common_rejections": [
+            "Applicant fails to prove BPL status or age (under 60).",
+            "Medical team deems the assistive device unnecessary."
+        ],
+        "tips": [
+            "Devices get 1-year free maintenance from ALIMCO.",
+            "Keep an eye on local newspaper ads for camp dates in your district."
         ]
     }
 ]
