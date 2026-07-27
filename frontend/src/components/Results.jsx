@@ -1,6 +1,5 @@
 // src/components/Results.jsx
 import React from 'react';
-import CountUp from 'react-countup';
 import SchemeCard from './SchemeCard';
 import { generatePDF } from '../utils/generatePDF';
 import { CheckCircle2, ArrowLeft, Sparkles, TrendingUp, Download, Printer, Share2 } from 'lucide-react';
