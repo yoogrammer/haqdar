@@ -126,7 +126,7 @@ function App() {
 
                     <div className="footer-bottom">
                         <div className="footer-copy">
-                            © 2025 HaqDar · Made with <Heart size={12} fill="currentColor" /> for Bharat 🇮🇳
+                            © 2026 HaqDar · Made with <Heart size={12} fill="currentColor" /> for Bharat 🇮🇳
                         </div>
                         <div className="footer-social">
                             <a href="mailto:hello@haqdar.in" aria-label="Email">

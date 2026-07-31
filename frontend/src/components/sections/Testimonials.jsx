@@ -7,7 +7,7 @@ const Testimonials = () => {
         {
             name: 'Sunita Devi',
             role: 'Farmer · Rajasthan',
-            image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&h=120&fit=crop&q=80',
+            image: 'https://unpkg.com/heroicons@2.0.18/24/solid/user-circle.svg',
             benefit: '₹3,47,000',
             quote: 'मुझे 8 योजनाओं के बारे में पता चला जो मैं कभी नहीं जानती थी। मेरे बच्चों के लिए scholarship भी मिली।',
             quoteEn: 'I learned about 8 schemes I never knew existed. I even got scholarships for my children.',
@@ -17,7 +17,7 @@ const Testimonials = () => {
         {
             name: 'Ramesh Kumar',
             role: 'Street Vendor · Maharashtra',
-            image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=120&h=120&fit=crop&q=80',
+            image: 'https://unpkg.com/heroicons@2.0.18/24/solid/user-circle.svg',
             benefit: '₹1,20,000',
             quote: 'PM SVANidhi se loan mila aur ab mera business badh raha hai. Sirf 2 din mein paisa mil gaya.',
             quoteEn: 'Got a PM SVANidhi loan and my business is growing. Money came in just 2 days.',
@@ -27,7 +27,7 @@ const Testimonials = () => {
         {
             name: 'Priya Sharma',
             role: 'Mother · Jharkhand',
-            image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=120&h=120&fit=crop&q=80',
+            image: 'https://unpkg.com/heroicons@2.0.18/24/solid/user-circle.svg',
             benefit: '₹2,05,000',
             quote: 'Pregnancy ke liye ₹5000 mile aur Ayushman Bharat card bhi. Hospital ka kharcha nahi hua.',
             quoteEn: 'Got ₹5000 for pregnancy and an Ayushman Bharat card. No hospital expenses at all.',
