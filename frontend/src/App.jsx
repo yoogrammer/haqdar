@@ -109,7 +109,6 @@ function App() {
 
                         <div className="footer-col">
                             <div className="footer-col-title">Resources</div>
-                            <a href="https://myscheme.gov.in" target="_blank" rel="noopener noreferrer">MyScheme.gov.in</a>
                             <a href="#blog">Blog</a>
                             <a href="#help">Help Centre</a>
                             <a href="#community">Community</a>
