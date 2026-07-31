@@ -12,7 +12,7 @@ import Categories from './components/sections/Categories';
 import Testimonials from './components/sections/Testimonials';
 import Stats from './components/sections/Stats';
 import FAQ from './components/sections/FAQ';
-import SuccessStories from './components/sections/SuccessStories';
+
 import { useSchemes } from './hooks/useSchemes';
 import { Mail, ExternalLink, Heart, Bot } from 'lucide-react';
 import './App.css';
@@ -75,7 +75,7 @@ function App() {
                         <Stats />
                         <ImpactStats />
                         <Categories />
-                        <SuccessStories />
+
                         <Testimonials />
                         <FAQ />
                     </>
