@@ -129,11 +129,8 @@ function App() {
                             © 2026 HaqDar · Made with <Heart size={12} fill="currentColor" /> for Bharat 🇮🇳
                         </div>
                         <div className="footer-social">
-                            <a href="mailto:hello@haqdar.in" aria-label="Email">
+                            <a href="mailto:rohanjadhav2327@gmail.com" aria-label="Email">
                                 <Mail size={16} />
-                            </a>
-                            <a href="https://myscheme.gov.in" target="_blank" rel="noopener noreferrer" aria-label="Website">
-                                <ExternalLink size={16} />
                             </a>
                         </div>
                     </div>
