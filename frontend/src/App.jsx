@@ -14,7 +14,7 @@ import Stats from './components/sections/Stats';
 import FAQ from './components/sections/FAQ';
 
 import { useSchemes } from './hooks/useSchemes';
-import { Mail, ExternalLink, Heart, Bot } from 'lucide-react';
+import { Mail, Heart, Bot } from 'lucide-react';
 import './App.css';
 
 function App() {
