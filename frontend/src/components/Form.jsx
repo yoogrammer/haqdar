@@ -402,7 +402,10 @@ const Form = ({ onSubmit, loading, error: externalError }) => {
                     disabled={loading || !canProceed}
                 >
                     {loading ? (
-                        <><Loader2 size={15} className="spin" /> {hi ? 'खोज रहे हैं...' : 'Finding...'}</>
+                        <>
+                            <Loader2 size={15} className="spin" />
+                            {hi ? 'आपकी योजनाएं ढूंढ रहे हैं...' : 'Finding your schemes...'}
+                        </>
                     ) : step === totalSteps ? (
                         <><Search size={15} /> {hi ? 'योजनाएं खोजें' : 'Find My Schemes'}</>
                     ) : (
