@@ -1,6 +1,7 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import Form from './components/Form';
+import ImpactStats from './components/sections/ImpactStats';
 import Results from './components/Results';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
@@ -72,6 +73,7 @@ function App() {
                     <>
                         <HowItWorks />
                         <Stats />
+                        <ImpactStats />
                         <Categories />
                         <SuccessStories />
                         <Testimonials />

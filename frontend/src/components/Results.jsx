@@ -21,6 +21,20 @@ const Results = ({ results, onBack }) => {
         const text = `I discovered ${total_schemes} government schemes worth Rs.${total_annual_benefit.toLocaleString('en-IN')}/year using HaqDar!\n\nCheck yours free at: https://haqdar-khaki.vercel.app\n\nHar haq milna chahiye 🇮🇳`;
         window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
     };
+    const handleShareApp = () => {
+        const text = `I just discovered ${total_schemes} government schemes worth ₹${total_annual_benefit.toLocaleString('en-IN')} using HaqDar!\n\nFind yours in 60 seconds - completely free:\nhttps://haqdar-khaki.vercel.app\n\nहर हक़ मिलना चाहिए 🇮🇳`;
+
+        if (navigator.share) {
+            navigator.share({
+                title: 'HaqDar - Discover Your Government Benefits',
+                text: text,
+                url: 'https://haqdar-khaki.vercel.app'
+            });
+        } else {
+            navigator.clipboard.writeText(text);
+            alert('Link copied! Share with your family and friends.');
+        }
+    };
 
     return (
         <div className="res">
@@ -85,6 +99,10 @@ const Results = ({ results, onBack }) => {
                 <button className="res-action-btn whatsapp" onClick={handleWhatsApp}>
                     <Share2 size={16} />
                     <span>WhatsApp</span>
+                </button>
+                <button className="res-action-btn share" onClick={handleShareApp}>
+                    <Share2 size={16} />
+                    <span>Share HaqDar</span>
                 </button>
             </div>
 
