@@ -8,11 +8,11 @@
 
 **AI-Powered Government Scheme Discovery for Every Indian Citizen**
 
-[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Now-EA580C?style=for-the-badge)](https://haqdar.vercel.app)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Visit_Now-EA580C?style=for-the-badge)](https://haqdar-khaki.vercel.app)
 [![License](https://img.shields.io/badge/License-MIT-0F172A?style=for-the-badge)](LICENSE)
 [![Made for Bharat](https://img.shields.io/badge/Made_for-Bharat_🇮🇳-059669?style=for-the-badge)](#)
 
-[Live Demo](https://haqdar.vercel.app) · [Video Demo](#-video-demo) · [Report Bug](#) · [Request Feature](#)
+[Live Demo](https://haqdar-khaki.vercel.app) · [Video Demo](#-video-demo) · [Report Bug](#) · [Request Feature](#)
 
 
 
@@ -282,7 +282,7 @@ app/
 ### Results Page
 *Personalized scheme recommendations with benefit calculator*
 
-> 🔗 **[See Live Demo](https://haqdar.vercel.app)**
+> 🔗 **[See Live Demo](https://haqdar-khaki.vercel.app)**
 
 ---
 
@@ -689,7 +689,7 @@ Free to use, modify, and distribute. Built for the public good.
 
 **"This money was always theirs. HaqDar just gave it back."**
 
-[🌐 Live Demo](https://haqdar.vercel.app) · [📺 Video](#) · [💻 Code](https://github.com/YOUR-USERNAME/haqdar)
+[🌐 Live Demo](https://haqdar-khaki.vercel.app) · [📺 Video](#) · [💻 Code](https://github.com/YOUR-USERNAME/haqdar)
 
 **Built with ❤️ for Bharat 🇮🇳**
 
